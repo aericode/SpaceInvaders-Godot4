@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var speed = 600 # How fast the player will move (pixels/sec).
+@export var speed = 400 # How fast the player will move (pixels/sec).
 
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
