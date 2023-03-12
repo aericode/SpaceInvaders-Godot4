@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var speed = 400 # How fast the player will move (pixels/sec).
+@export var speed = 600 # How fast the player will move (pixels/sec).
 
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
@@ -9,10 +9,6 @@ func _process(delta):
 		velocity.x += 1
 	if Input.is_action_pressed("left"):
 		velocity.x -= 1
-	if Input.is_action_pressed("down"):
-		velocity.y += 1
-	if Input.is_action_pressed("up"):
-		velocity.y -= 1
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
