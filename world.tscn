@@ -8,17 +8,17 @@ size = Vector2(36, 14)
 
 [node name="World" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="player" type="Area2D" parent="."]
 position = Vector2(315, 355)
 script = ExtResource("2_v4k18")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_6cxwb")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="player"]
 scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("2_rsbpw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_6cxwb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

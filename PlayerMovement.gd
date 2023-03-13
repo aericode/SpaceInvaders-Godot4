@@ -1,16 +1,17 @@
-extends CharacterBody2D
+extends Area2D
 
 
-@export var speed = 400 # How fast the player will move (pixels/sec).
+@export var speed = 4 # How fast the player will move (pixels/sec).
+@onready var screen_size_x = get_viewport_rect().size.x
+
+
+
 
 func _process(delta):
-	var velocity = Vector2.ZERO # The player's movement vector.
+	var input = 0
 	if Input.is_action_pressed("right"):
-		velocity.x += 1
+		input = 1
 	if Input.is_action_pressed("left"):
-		velocity.x -= 1
+		input =-1
 
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-
-	position += velocity * delta
+	position.x = clamp(position.x + input * speed, 16, 640)
