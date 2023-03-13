@@ -14,4 +14,4 @@ func _process(delta):
 	if Input.is_action_pressed("left"):
 		input =-1
 
-	position.x = clamp(position.x + input * speed, 16, 640)
+	position.x = clamp(position.x + input * speed, 18, 750)

@@ -9,7 +9,7 @@ size = Vector2(36, 14)
 [node name="World" type="Node2D"]
 
 [node name="player" type="Area2D" parent="."]
-position = Vector2(315, 355)
+position = Vector2(380, 420)
 script = ExtResource("2_v4k18")
 
 [node name="Sprite2D" type="Sprite2D" parent="player"]
@@ -17,9 +17,10 @@ scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("2_rsbpw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+visible = false
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_6cxwb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
-zoom = Vector2(1.75, 1.75)
+zoom = Vector2(1.5, 1.5)
