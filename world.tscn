@@ -1,16 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://fkf0vo3xhpac"]
+[gd_scene load_steps=5 format=3 uid="uid://b3bhc0q3epx2t"]
 
+[ext_resource type="Script" path="res://scripts/Game.gd" id="1_5srw1"]
 [ext_resource type="Texture2D" uid="uid://syjgg661qs1a" path="res://assets/player.png" id="2_rsbpw"]
-[ext_resource type="Script" path="res://PlayerMovement.gd" id="2_v4k18"]
+[ext_resource type="Script" path="res://scripts/PlayerMovement.gd" id="2_uwgtw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cxwb"]
 size = Vector2(36, 14)
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_5srw1")
 
 [node name="player" type="Area2D" parent="."]
-position = Vector2(380, 420)
-script = ExtResource("2_v4k18")
+position = Vector2(380, 390)
+script = ExtResource("2_uwgtw")
 
 [node name="Sprite2D" type="Sprite2D" parent="player"]
 scale = Vector2(0.578125, 0.578125)
