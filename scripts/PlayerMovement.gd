@@ -2,9 +2,10 @@ extends Area2D
 
 
 @export var speed = 4 # How fast the player will move (pixels/sec).
-@onready var screen_size_x = get_viewport_rect().size.x
 
 
+@export var player_limit_begin = 0
+@export var player_limit_end = 1000
 
 
 func _process(delta):
@@ -14,4 +15,4 @@ func _process(delta):
 	if Input.is_action_pressed("left"):
 		input =-1
 
-	position.x = clamp(position.x + input * speed, 18, 750)
+	position.x = clamp(position.x + input * speed, player_limit_begin, player_limit_end)
