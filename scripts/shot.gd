@@ -4,8 +4,8 @@ extends Node2D
 var move_direction
 
 func _ready():
-	pass # Replace with function body.
-
+	if(is_enemy):
+		get_node("Sprite2D").self_modulate = Color(0, 1, 0)
 
 func _physics_process(delta):
 	position += Vector2(0,-10)
