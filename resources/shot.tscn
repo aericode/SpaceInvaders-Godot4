@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfhfqf4wjc6no"]
+[gd_scene load_steps=4 format=3 uid="uid://cg20lct23v2vt"]
 
-[ext_resource type="Script" path="res://scripts/shot.gd" id="1_7vecc"]
+[ext_resource type="Script" path="res://scripts/Shot.gd" id="1_8ei5t"]
 [ext_resource type="Texture2D" uid="uid://bmjtxkf1cxp86" path="res://assets/player_shot.png" id="2_goykd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rk784"]
 size = Vector2(4, 14)
 
 [node name="shot" type="Node2D"]
-script = ExtResource("1_7vecc")
+script = ExtResource("1_8ei5t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_goykd")
