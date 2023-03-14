@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d26gwj26ofwsf"]
+[gd_scene load_steps=4 format=3 uid="uid://d26gwj26ofwsf"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_5srw1"]
 [ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/background.png" id="2_43igr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cw15e"]
+size = Vector2(823, 20)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_5srw1")
@@ -13,3 +16,9 @@ centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+
+[node name="Upper_bullet_destroyer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Upper_bullet_destroyer"]
+position = Vector2(579.5, 0)
+shape = SubResource("RectangleShape2D_cw15e")
