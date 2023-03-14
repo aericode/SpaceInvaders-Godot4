@@ -1,6 +1,7 @@
 extends Node2D
 
 var enemy_resource = preload("res://resources/enemy.tscn")
+var player_resource = preload("res://resources/player.tscn")
 
 func instantiate_enemy(position:Vector2, line_index):
 	var enemy = enemy_resource.instantiate()
@@ -37,8 +38,15 @@ func instantiatee_swarm():
 	for level in range(1,number_of_lines+1,1):
 		instantiate_line(level)
 
+func instantiate_player():
+	var player = player_resource.instantiate()
+	player.position = Vector2(590, 615)
+	add_child(player)
+
+
 func _ready():
 	instantiatee_swarm()
+	instantiate_player()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
