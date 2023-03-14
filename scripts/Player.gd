@@ -1,12 +1,12 @@
 extends Area2D
 
-var bullet_resource = preload("res://assets/player_shot.png")
+var bullet_resource = preload("res://resources/bullet.tscn")
 
 @export var speed = 4 # How fast the player will move (pixels/sec).
 
 
 @export var player_limit_begin = 0
-@export var player_limit_end = 1000
+@export var player_limit_end = 0
 
 
 func _process(delta):
@@ -18,5 +18,6 @@ func _process(delta):
 	position.x = clamp(position.x + input * speed, player_limit_begin, player_limit_end)
 	
 	if Input.is_action_just_pressed("shoot"):
-		var shot = 
-		
+		var bullet = bullet_resource.instantiate()
+		bullet.position = Vector2(100,100)
+		get_node("/root/World").add_child(bullet)

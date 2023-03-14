@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://d26gwj26ofwsf"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_5srw1"]
 [ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/background.png" id="2_43igr"]
@@ -25,7 +25,6 @@ texture = ExtResource("3_5n0f3")
 [node name="player" type="Area2D" parent="."]
 position = Vector2(575, 610)
 script = ExtResource("4_hkuk5")
-speed = null
 player_limit_begin = 190
 player_limit_end = 970
 
