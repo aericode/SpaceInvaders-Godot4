@@ -18,5 +18,5 @@ func _process(delta):
 	position.x = clamp(position.x + input * speed, player_limit_begin, player_limit_end)
 	
 	if Input.is_action_just_pressed("shoot"):
-		instance
+		var shot = 
 		

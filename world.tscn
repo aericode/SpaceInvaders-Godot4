@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5pen74n64qsl"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_5srw1"]
 [ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/background.png" id="2_43igr"]
 [ext_resource type="Texture2D" uid="uid://syjgg661qs1a" path="res://assets/player.png" id="2_rsbpw"]
-[ext_resource type="Texture2D" uid="uid://8cedr6lf3177" path="res://assets/enemy_shot.png" id="3_mlcxj"]
+[ext_resource type="Texture2D" uid="uid://8cedr6lf3177" path="res://assets/enemy_bullet.png" id="3_5n0f3"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="4_hkuk5"]
-[ext_resource type="PackedScene" uid="uid://cg20lct23v2vt" path="res://resources/shot.tscn" id="6_lw3b3"]
+[ext_resource type="PackedScene" uid="uid://b245aivnvljcg" path="res://resources/bullet.tscn" id="6_lw3b3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cxwb"]
 size = Vector2(36, 14)
@@ -20,7 +20,7 @@ centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(624, 357)
-texture = ExtResource("3_mlcxj")
+texture = ExtResource("3_5n0f3")
 
 [node name="player" type="Area2D" parent="."]
 position = Vector2(575, 610)

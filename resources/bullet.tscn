@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cg20lct23v2vt"]
+[gd_scene load_steps=4 format=3 uid="uid://b245aivnvljcg"]
 
 [ext_resource type="Script" path="res://scripts/Shot.gd" id="1_8ei5t"]
-[ext_resource type="Texture2D" uid="uid://bmjtxkf1cxp86" path="res://assets/player_shot.png" id="2_goykd"]
+[ext_resource type="Texture2D" uid="uid://bmjtxkf1cxp86" path="res://assets/player_bullet.png" id="2_0fq53"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rk784"]
 size = Vector2(4, 14)
@@ -10,7 +10,7 @@ size = Vector2(4, 14)
 script = ExtResource("1_8ei5t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_goykd")
+texture = ExtResource("2_0fq53")
 
 [node name="Area2D" type="Area2D" parent="."]
 
