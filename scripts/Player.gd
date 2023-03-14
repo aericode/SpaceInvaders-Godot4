@@ -19,5 +19,6 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("shoot"):
 		var bullet = bullet_resource.instantiate()
-		bullet.position = Vector2(100,100)
+		bullet.position = get_position() + Vector2(0,-5)
 		get_node("/root/World").add_child(bullet)
+		
