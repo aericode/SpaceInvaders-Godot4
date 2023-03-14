@@ -23,11 +23,11 @@ func instantiate_enemy(position:Vector2, line_index):
 
 func instantiate_line(level):
 	var vertical_offset = 20
-	var horizontal_offset = 380
-	var horizontal_limit = 800
+	var horizontal_offset = 300
+	var horizontal_limit = 900
 	
-	var side_spacing = 50
-	var vertical_spacing = 40
+	var side_spacing = 55
+	var vertical_spacing = 48
 	var height = level*vertical_spacing + vertical_offset
 	for x_pos in range(horizontal_offset, horizontal_limit, side_spacing):
 		instantiate_enemy(Vector2(x_pos, height), level)
