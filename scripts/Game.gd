@@ -1,7 +1,7 @@
 extends Node2D
 
-var enemy_resource = preload("res://resources/enemy.tscn")
-var player_resource = preload("res://resources/player.tscn")
+var enemy_resource = preload("res://resources/Enemy.tscn")
+var player_resource = preload("res://resources/Player.tscn")
 
 func instantiate_enemy(position:Vector2, line_index):
 	var enemy = enemy_resource.instantiate()

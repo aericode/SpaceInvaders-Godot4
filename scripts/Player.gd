@@ -1,6 +1,6 @@
 extends Area2D
 
-var bullet_resource = preload("res://resources/bullet.tscn")
+var bullet_resource = preload("res://resources/Player_bullet.tscn")
 
 @export var speed = 4 # How fast the player will move (pixels/sec).
 

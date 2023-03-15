@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgmxniq8unrky"]
 
-[ext_resource type="Script" path="res://scripts/Player.gd" id="1_26i7e"]
-[ext_resource type="Texture2D" uid="uid://syjgg661qs1a" path="res://assets/player.png" id="2_brhjy"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_8hv5u"]
+[ext_resource type="Texture2D" uid="uid://syjgg661qs1a" path="res://assets/player.png" id="2_j5alm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qry6w"]
 size = Vector2(36, 14)
 
 [node name="player" type="Area2D"]
-script = ExtResource("1_26i7e")
+script = ExtResource("1_8hv5u")
 player_limit_begin = 190
 player_limit_end = 970
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.578125, 0.578125)
-texture = ExtResource("2_brhjy")
+texture = ExtResource("2_j5alm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
