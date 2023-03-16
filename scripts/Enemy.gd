@@ -7,12 +7,19 @@ func _ready():
 	pass # Replace with function body.
 
 func destroy_self():
+	#spawn_bullet()	
 	queue_free()
 
-func detect_hit():
-	if(has_overlapping_areas()):
+func _on_area_entered(area):
+	if(area.get_name()=="Player_bullet"):
 		destroy_self()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	detect_hit()
+func spawn_bullet():
+	var bullet_resource = preload("res://resources/Enemy_bullet.tscn")
+	var bullet = bullet_resource.instantiate()
+	bullet.position = get_position() + Vector2(0,-5)
+	get_node("/root/World").add_child(bullet)
+
+func _process(delta):
+	#spawn_bullet()
+	pass
