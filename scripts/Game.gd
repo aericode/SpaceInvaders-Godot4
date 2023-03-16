@@ -65,6 +65,12 @@ func get_random_non_empty_column():
 			is_finished = true
 	return column_array
 
+func get_nearest_enemy_in_column(enemy_column_array):
+	var highest =  enemy_column_array[0]
+	for enemy in enemy_column_array:
+		if(enemy.column_index > highest.column_index):
+			highest = enemy
+	return highest
 	
 func pick_random_enemy(swarm):
 	return swarm[randi()%swarm.size()]
