@@ -1,6 +1,6 @@
 extends Node2D
 
-func instantiate_enemy(position:Vector2, line_index):
+func instantiate_enemy(position:Vector2, line_index, column_index):
 	var enemy_resource = preload("res://resources/Enemy.tscn")
 	var enemy = enemy_resource.instantiate()
 	var enemy_sprite
@@ -21,16 +21,20 @@ func instantiate_enemy(position:Vector2, line_index):
 	enemy.add_to_group("Enemy")	
 	add_child(enemy);
 
-func instantiate_line(level):
+func instantiate_line(row_index):
 	var vertical_offset = 20
 	var horizontal_offset = 300
 	var horizontal_limit = 900
 	
 	var side_spacing = 55
 	var vertical_spacing = 48
-	var height = level*vertical_spacing + vertical_offset
+	var height = row_index*vertical_spacing + vertical_offset
+	
+	var column_index = 0;
+	
 	for x_pos in range(horizontal_offset, horizontal_limit, side_spacing):
-		instantiate_enemy(Vector2(x_pos, height), level)
+		instantiate_enemy(Vector2(x_pos, height), row_index, column_index)
+		column_index+=1
 		
 func instantiatee_swarm():
 	var number_of_lines = 5
