@@ -2,7 +2,7 @@ extends Area2D
 
 @export var score_value = 0;
 
-var line_index;
+var row_index;
 var column_index;
 
 func destroy_self():

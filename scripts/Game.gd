@@ -49,10 +49,22 @@ func instantiate_player():
 	player.position = Vector2(590, 615)
 	add_child(player)
 
+	
+func get_random_non_empty_column():
+	var is_finished = false
+	var column_array = []
+	while(!is_finished):
+		const NUMBER_OF_COLUMNS = 11
+		var randomized_index = randi()%NUMBER_OF_COLUMNS
+		print(randomized_index)
+		var enemy_array = get_tree().get_nodes_in_group("Enemy")
+		for enemy in enemy_array:
+			if(enemy.column_index == randomized_index):
+				column_array.push_back(enemy)
+		if(column_array.size() > 0):
+			is_finished = true
+	return column_array
 
-func _ready():
-	instantiatee_swarm()
-	instantiate_player()
 	
 func pick_random_enemy(swarm):
 	return swarm[randi()%swarm.size()]
@@ -76,3 +88,11 @@ func handle_shooting_timer():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	handle_shooting_timer()
+
+
+func _ready():
+	instantiatee_swarm()
+	instantiate_player()
+	var array = get_random_non_empty_column();
+	for enemy in array:
+		enemy.spawn_bullet()
