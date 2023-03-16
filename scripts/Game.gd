@@ -1,22 +1,24 @@
 extends Node2D
 
-func instantiate_enemy(position:Vector2, line_index, column_index):
+func instantiate_enemy(position:Vector2, row_index, column_index):
 	var enemy_resource = preload("res://resources/Enemy.tscn")
 	var enemy = enemy_resource.instantiate()
 	var enemy_sprite
 	
 	enemy.set_position(position)
-	if(line_index == 1):
+	if(row_index == 1):
 		enemy.score_value =  40
 		enemy_sprite = load("res://assets/red.png")
-	if(line_index == 2 || line_index == 3):
+	if(row_index == 2 || row_index == 3):
 		enemy.score_value =  20
 		enemy_sprite = load("res://assets/yellow.png")
-	if(line_index == 4 || line_index == 5):
+	if(row_index == 4 || row_index == 5):
 		enemy.score_value =  10
 		enemy_sprite = load("res://assets/green.png")
 	
 	enemy.get_node("Sprite2D").texture = enemy_sprite
+	enemy.row_index    = row_index
+	enemy.column_index = column_index 
 	
 	enemy.add_to_group("Enemy")	
 	add_child(enemy);
