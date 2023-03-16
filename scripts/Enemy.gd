@@ -15,3 +15,6 @@ func spawn_bullet():
 	var bullet = bullet_resource.instantiate()
 	bullet.position = get_position() + Vector2(0,-5)
 	get_node("/root/World").add_child(bullet)
+
+func ready():
+	spawn_bullet()

@@ -20,7 +20,7 @@ func instantiate_enemy(position:Vector2, line_index):
 	
 	enemy.get_node("Sprite2D").texture = enemy_sprite
 	
-	enemy.add_to_group("Enemy")
+	enemy.add_to_group("Enemy")	
 	add_child(enemy);
 
 func instantiate_line(level):
@@ -49,7 +49,14 @@ func _ready():
 	instantiatee_swarm()
 	instantiate_player()
 	
+func pick_random_enemy(swarm):
+	return swarm[randi()%swarm.size()]
+
+func random_shot():
+	var swarm = get_tree().get_nodes_in_group("Enemy")
+	var random_enemy = pick_random_enemy(swarm)
+	random_enemy.spawn_bullet()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	random_shot()
