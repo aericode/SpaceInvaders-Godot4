@@ -1,6 +1,5 @@
 extends Node2D
 
-
 func instantiate_enemy(position:Vector2, line_index):
 	var enemy_resource = preload("res://resources/Enemy.tscn")
 	var enemy = enemy_resource.instantiate()
@@ -56,7 +55,18 @@ func random_shot():
 	var swarm = get_tree().get_nodes_in_group("Enemy")
 	var random_enemy = pick_random_enemy(swarm)
 	random_enemy.spawn_bullet()
+	
+var enemy_shooting_cooldown = 0;
+func reset_enemy_shooting_cooldown():
+	enemy_shooting_cooldown = 80;
+
+func handle_shooting_timer():
+	enemy_shooting_cooldown -= 1
+	if(enemy_shooting_cooldown<=0):
+		random_shot()
+		reset_enemy_shooting_cooldown()	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	random_shot()
+	handle_shooting_timer()

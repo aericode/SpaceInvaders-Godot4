@@ -1,7 +1,11 @@
 extends Area2D
 
-func _physics_process(delta):
+func move():
 	var movement_vector = Vector2(0,-10)
 	position += movement_vector
-	if(has_overlapping_areas()):
-		queue_free()
+
+func _on_area_entered(area):
+	queue_free()
+
+func _physics_process(delta):
+	move()
