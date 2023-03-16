@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://d26gwj26ofwsf"]
 
-[ext_resource type="Script" path="res://scripts/Game.gd" id="1_5srw1"]
-[ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/background.png" id="2_43igr"]
+[ext_resource type="Script" path="res://scripts/Game.gd" id="1_jr6ap"]
+[ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/background.png" id="2_pj646"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cw15e"]
 size = Vector2(823, 20)
 
 [node name="World" type="Node2D" groups=["Enemies"]]
-script = ExtResource("1_5srw1")
+script = ExtResource("1_jr6ap")
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(170, 0)
-texture = ExtResource("2_43igr")
+texture = ExtResource("2_pj646")
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
