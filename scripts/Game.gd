@@ -56,7 +56,6 @@ func get_random_non_empty_column():
 	while(!is_finished):
 		const NUMBER_OF_COLUMNS = 11
 		var randomized_index = randi()%NUMBER_OF_COLUMNS
-		print(randomized_index)
 		var enemy_array = get_tree().get_nodes_in_group("Enemy")
 		for enemy in enemy_array:
 			if(enemy.column_index == randomized_index):
@@ -68,17 +67,15 @@ func get_random_non_empty_column():
 func get_nearest_enemy_in_column(enemy_column_array):
 	var nearest_enemy =  enemy_column_array[0]
 	for enemy in enemy_column_array:
-		if(enemy.column_index > nearest_enemy.column_index):
+		if(enemy.row_index > nearest_enemy.row_index):
 			nearest_enemy = enemy
 	return nearest_enemy
 	
-func pick_random_enemy(swarm):
-	return swarm[randi()%swarm.size()]
 
-func random_shot():
-	var swarm = get_tree().get_nodes_in_group("Enemy")
-	var random_enemy = pick_random_enemy(swarm)
-	random_enemy.spawn_bullet()
+func enemy_shoot():
+	var enemy_column   = get_random_non_empty_column()
+	var shooting_enemy = get_nearest_enemy_in_column(enemy_column)
+	shooting_enemy.shoot()
 	
 var enemy_shooting_cooldown = 0;
 func reset_enemy_shooting_cooldown():
@@ -87,7 +84,7 @@ func reset_enemy_shooting_cooldown():
 func handle_shooting_timer():
 	enemy_shooting_cooldown -= 1
 	if(enemy_shooting_cooldown<=0):
-		random_shot()
+		enemy_shoot()
 		reset_enemy_shooting_cooldown()	
 	
 
@@ -99,6 +96,3 @@ func _process(delta):
 func _ready():
 	instantiatee_swarm()
 	instantiate_player()
-	var array = get_random_non_empty_column();
-	for enemy in array:
-		enemy.spawn_bullet()
