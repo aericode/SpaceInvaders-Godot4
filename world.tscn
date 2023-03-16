@@ -22,3 +22,10 @@ anchor_mode = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Upper_bullet_destroyer"]
 position = Vector2(579.5, 0)
 shape = SubResource("RectangleShape2D_cw15e")
+
+[node name="Lower_bullet_destroyer" type="Area2D" parent="."]
+position = Vector2(0, 660)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lower_bullet_destroyer"]
+position = Vector2(579.5, 0)
+shape = SubResource("RectangleShape2D_cw15e")

@@ -1,9 +1,8 @@
 extends Node2D
 
-var enemy_resource = preload("res://resources/Enemy.tscn")
-var player_resource = preload("res://resources/Player.tscn")
 
 func instantiate_enemy(position:Vector2, line_index):
+	var enemy_resource = preload("res://resources/Enemy.tscn")
 	var enemy = enemy_resource.instantiate()
 	var enemy_sprite
 	
@@ -40,6 +39,7 @@ func instantiatee_swarm():
 		instantiate_line(level)
 
 func instantiate_player():
+	var player_resource = preload("res://resources/Player.tscn")
 	var player = player_resource.instantiate()
 	player.position = Vector2(590, 615)
 	add_child(player)
