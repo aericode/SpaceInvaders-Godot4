@@ -4,10 +4,11 @@ extends Area2D
 func destroy_self():
 	queue_free()
 
-func _on_area_entered(area):
-	var area_name = area.get_name()
-	print(area_name)
-	if(area_name!="Enemy" && area_name!="Player_bullet"):
+func is_area_harmless_on_collision(area:Area2D):
+	return area.is_in_group("Enemy") || area.get_name()=="Player_bullet"
+
+func _on_area_entered(area):	
+	if(!is_area_harmless_on_collision(area)):
 		destroy_self()
 
 func move():

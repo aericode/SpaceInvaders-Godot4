@@ -20,6 +20,7 @@ func instantiate_enemy(position:Vector2, line_index):
 	
 	enemy.get_node("Sprite2D").texture = enemy_sprite
 	
+	enemy.add_to_group("Enemy")
 	add_child(enemy);
 
 func instantiate_line(level):
