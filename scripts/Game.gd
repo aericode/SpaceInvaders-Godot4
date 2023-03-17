@@ -21,8 +21,7 @@ func instantiate_enemy(position:Vector2, row_index, column_index):
 	enemy.column_index = column_index 
 	
 	enemy.add_to_group("Enemy")	
-	#get_node("Swarm").add_child(enemy)
-	add_child(enemy)
+	get_node("Swarm").add_child(enemy)
 
 func instantiate_line(row_index):
 	var vertical_offset = 20
@@ -50,19 +49,27 @@ func instantiate_player():
 	player.position = Vector2(590, 615)
 	add_child(player)
 
+func has_enemies():
+	var swarm_node = get_node("Swarm")
+	var enemy_array = swarm_node.get_children()
+	return enemy_array.is_empty()
 	
 func get_random_non_empty_column():
 	var swarm_node = get_node("Swarm")
 	var is_finished = false
 	var column_array = []
 	while(!is_finished):
+		if(!has_enemies()):
+			return null
+		
 		const NUMBER_OF_COLUMNS = 11
 		var randomized_index = randi()%NUMBER_OF_COLUMNS
 		var enemy_array = swarm_node.get_children()
 		for enemy in enemy_array:
 			if(enemy.column_index == randomized_index):
 				column_array.push_back(enemy)
-		if(column_array.size() > 0):
+		print(column_array.size())
+		if(enemy_array.size() > 0):
 			is_finished = true
 	return column_array
 
@@ -74,10 +81,13 @@ func get_nearest_enemy_in_column(enemy_column_array):
 	return nearest_enemy
 	
 
+
+
 func enemy_shoot():
-	var enemy_column   = get_random_non_empty_column()
-	var shooting_enemy = get_nearest_enemy_in_column(enemy_column)
-	shooting_enemy.shoot()
+	if(has_enemies()):
+		var enemy_column   = get_random_non_empty_column()
+		var shooting_enemy = get_nearest_enemy_in_column(enemy_column)
+		shooting_enemy.shoot()
 	
 var enemy_shooting_cooldown = 0;
 func reset_enemy_shooting_cooldown():
@@ -96,7 +106,6 @@ func move_swarm():
 
 func _process(delta):
 	handle_shooting_timer()
-	
 
 func _ready():
 	instantiatee_swarm()

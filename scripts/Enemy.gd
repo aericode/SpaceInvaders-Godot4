@@ -9,6 +9,7 @@ func destroy_self():
 	queue_free()
 
 func _on_area_entered(area):
+	destroy_self()
 	if(area.get_name()=="Player_bullet"):
 		destroy_self()
 
@@ -22,6 +23,3 @@ func spawn_bullet():
 func shoot():
 	spawn_bullet()
 
-func _ready():
-	var movement_vector = Vector2(50,0)
-	position += movement_vector
