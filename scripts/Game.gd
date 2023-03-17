@@ -86,14 +86,17 @@ func handle_shooting_timer():
 	if(enemy_shooting_cooldown<=0):
 		enemy_shoot()
 		reset_enemy_shooting_cooldown()	
-	
+
 func move_swarm():
-	var movement_vector = Vector2(0,-10)
-	position += movement_vector
+	var swarm_node = get_node("Swarm")
+	var movement_vector = Vector2(500,0)
+	swarm_node.position += movement_vector
 
 func _process(delta):
 	handle_shooting_timer()
+	
 
 func _ready():
 	instantiatee_swarm()
 	instantiate_player()
+	move_swarm()
