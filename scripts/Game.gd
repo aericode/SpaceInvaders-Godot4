@@ -21,7 +21,7 @@ func instantiate_enemy(position:Vector2, row_index, column_index):
 	enemy.column_index = column_index 
 	
 	enemy.add_to_group("Enemy")	
-	add_child(enemy);
+	get_node("Swarm").add_child(enemy);
 
 func instantiate_line(row_index):
 	var vertical_offset = 20
@@ -87,11 +87,12 @@ func handle_shooting_timer():
 		enemy_shoot()
 		reset_enemy_shooting_cooldown()	
 	
+func move_swarm():
+	var movement_vector = Vector2(0,-10)
+	position += movement_vector
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	handle_shooting_timer()
-
 
 func _ready():
 	instantiatee_swarm()
