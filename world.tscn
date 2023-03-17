@@ -15,6 +15,7 @@ texture = ExtResource("2_pj646")
 centered = false
 
 [node name="Swarm" type="Node2D" parent="."]
+position = Vector2(500, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

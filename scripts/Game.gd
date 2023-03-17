@@ -21,7 +21,8 @@ func instantiate_enemy(position:Vector2, row_index, column_index):
 	enemy.column_index = column_index 
 	
 	enemy.add_to_group("Enemy")	
-	get_node("Swarm").add_child(enemy);
+	#get_node("Swarm").add_child(enemy)
+	add_child(enemy)
 
 func instantiate_line(row_index):
 	var vertical_offset = 20
@@ -51,12 +52,13 @@ func instantiate_player():
 
 	
 func get_random_non_empty_column():
+	var swarm_node = get_node("Swarm")
 	var is_finished = false
 	var column_array = []
 	while(!is_finished):
 		const NUMBER_OF_COLUMNS = 11
 		var randomized_index = randi()%NUMBER_OF_COLUMNS
-		var enemy_array = get_tree().get_nodes_in_group("Enemy")
+		var enemy_array = swarm_node.get_children()
 		for enemy in enemy_array:
 			if(enemy.column_index == randomized_index):
 				column_array.push_back(enemy)
@@ -89,7 +91,7 @@ func handle_shooting_timer():
 
 func move_swarm():
 	var swarm_node = get_node("Swarm")
-	var movement_vector = Vector2(500,0)
+	var movement_vector = Vector2(1000,0)
 	swarm_node.position += movement_vector
 
 func _process(delta):
@@ -99,4 +101,4 @@ func _process(delta):
 func _ready():
 	instantiatee_swarm()
 	instantiate_player()
-	move_swarm()
+	#move_swarm()

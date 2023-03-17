@@ -21,3 +21,7 @@ func spawn_bullet():
 	
 func shoot():
 	spawn_bullet()
+
+func _ready():
+	var movement_vector = Vector2(50,0)
+	position += movement_vector
