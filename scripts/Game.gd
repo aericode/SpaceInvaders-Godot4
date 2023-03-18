@@ -68,7 +68,7 @@ func get_random_non_empty_column():
 		for enemy in enemy_array:
 			if(enemy.column_index == randomized_index):
 				column_array.push_back(enemy)
-		if(enemy_array.size() > 0):
+		if(column_array.size() > 0):
 			is_finished = true
 	return column_array
 
