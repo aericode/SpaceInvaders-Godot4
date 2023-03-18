@@ -98,6 +98,7 @@ func handle_shooting_timer():
 		enemy_shoot()
 		reset_enemy_shooting_cooldown()
 
+var current_swarm_move_state = MOVE_DIRECTION.RIGHT
 enum MOVE_DIRECTION {LEFT, RIGHT, DOWN}
 func get_vector_from_move_direction(direction):
 	var lateral_vector  = Vector2(20,0)
@@ -112,12 +113,25 @@ func get_vector_from_move_direction(direction):
 			result = lateral_vector * -1
 		MOVE_DIRECTION.DOWN:
 			result = downards_vector
+	
+	return result
 
-#func move_swarm():
+func move_swarm(direction):
+	var movement_vector = get_vector_from_move_direction(direction)
+	get_node("Swarm").position += movement_vector
+	
+var enemy_movement_cooldown = 0;
+func reset_enemy_movement_cooldown():
+	enemy_movement_cooldown = 100;
 
-
+func handle_move_swarm_timer(direction):
+	enemy_movement_cooldown -= 1
+	if(enemy_movement_cooldown<=0):
+		move_swarm(current_swarm_move_state)
+		reset_enemy_movement_cooldown()
 
 func _process(_delta):
+	handle_move_swarm_timer(current_swarm_move_state)
 	handle_shooting_timer()
 	
 func _ready():
