@@ -9,7 +9,6 @@ func destroy_self():
 	queue_free()
 
 func _on_area_entered(area):
-	print("ouch")
 	if(area.get_name()=="Player_bullet"):
 		destroy_self()
 
