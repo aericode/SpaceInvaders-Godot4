@@ -1,11 +1,11 @@
 extends Node2D
 
-func instantiate_enemy(position:Vector2, row_index, column_index):
+func instantiate_enemy(enemy_position:Vector2, row_index, column_index):
 	var enemy_resource = preload("res://resources/Enemy.tscn")
 	var enemy = enemy_resource.instantiate()
 	var enemy_sprite
 	
-	enemy.set_position(position)
+	enemy.set_position(enemy_position)
 	if(row_index == 1):
 		enemy.score_value =  40
 		enemy_sprite = load("res://assets/red.png")
@@ -96,17 +96,15 @@ func handle_shooting_timer():
 	enemy_shooting_cooldown -= 1
 	if(enemy_shooting_cooldown<=0):
 		enemy_shoot()
-		reset_enemy_shooting_cooldown()	
+		reset_enemy_shooting_cooldown()
 
 func move_swarm():
 	var swarm_node = get_node("Swarm")
 	var movement_vector = Vector2(1000,0)
 	swarm_node.position += movement_vector
 
-func _process(delta):
-	has_enemies()
+func _process(_delta):
 	handle_shooting_timer()
-	enemy_shoot()
 	
 func _ready():
 	instantiatee_swarm()
