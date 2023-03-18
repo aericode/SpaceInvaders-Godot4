@@ -98,11 +98,6 @@ func handle_shooting_timer():
 		enemy_shoot()
 		reset_enemy_shooting_cooldown()
 
-func move_swarm():
-	var swarm_node = get_node("Swarm")
-	var movement_vector = Vector2(1000,0)
-	swarm_node.position += movement_vector
-
 func _process(_delta):
 	handle_shooting_timer()
 	
