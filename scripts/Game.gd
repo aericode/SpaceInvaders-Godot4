@@ -105,8 +105,9 @@ func move_swarm():
 	swarm_node.position += movement_vector
 
 func _process(delta):
-	handle_shooting_timer()
-
+	#handle_shooting_timer()
+	enemy_shoot()
+	
 func _ready():
 	instantiatee_swarm()
 	instantiate_player()
