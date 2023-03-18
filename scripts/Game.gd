@@ -52,7 +52,7 @@ func instantiate_player():
 func has_enemies():
 	var swarm_node = get_node("Swarm")
 	var enemy_array = swarm_node.get_children()
-	return enemy_array.is_empty()
+	return !enemy_array.is_empty()
 	
 func get_random_non_empty_column():
 	var swarm_node = get_node("Swarm")
@@ -68,7 +68,6 @@ func get_random_non_empty_column():
 		for enemy in enemy_array:
 			if(enemy.column_index == randomized_index):
 				column_array.push_back(enemy)
-		print(column_array.size())
 		if(enemy_array.size() > 0):
 			is_finished = true
 	return column_array
@@ -105,7 +104,8 @@ func move_swarm():
 	swarm_node.position += movement_vector
 
 func _process(delta):
-	#handle_shooting_timer()
+	has_enemies()
+	handle_shooting_timer()
 	enemy_shoot()
 	
 func _ready():
