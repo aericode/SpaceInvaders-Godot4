@@ -15,7 +15,7 @@ func _on_area_entered(area):
 func spawn_bullet():
 	var bullet_resource = preload("res://resources/Enemy_bullet.tscn")
 	var bullet = bullet_resource.instantiate()
-	bullet.position = get_position() + Vector2(0,-5)
+	bullet.position = position + Vector2(0,-5)
 	get_node("/root/World").add_child(bullet)
 	
 	
