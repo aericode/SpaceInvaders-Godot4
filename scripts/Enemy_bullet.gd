@@ -15,5 +15,5 @@ func move():
 	var movement_vector = Vector2(0,10)
 	position += movement_vector
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	move()

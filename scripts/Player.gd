@@ -28,6 +28,6 @@ func handle_shooting():
 	if (Input.is_action_just_pressed("shoot") && can_shoot()):
 		spawn_bullet()
 
-func _process(delta):
+func _process(_delta):
 	handle_movement()
 	handle_shooting()
