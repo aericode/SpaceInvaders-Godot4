@@ -98,15 +98,55 @@ func handle_shooting_timer():
 		enemy_shoot()
 		reset_enemy_shooting_cooldown()
 
-func move_swarm():
-	var swarm_node = get_node("Swarm")
-	var movement_vector = Vector2(1000,0)
-	swarm_node.position += movement_vector
+enum MOVE_DIRECTION {LEFT, RIGHT}
+
+var current_swarm_move_state = MOVE_DIRECTION.RIGHT
+var is_swarm_next_step_down = false
+
+func switch_swarm_move_state():
+	if(current_swarm_move_state == MOVE_DIRECTION.RIGHT):
+		current_swarm_move_state = MOVE_DIRECTION.LEFT
+	else:
+		current_swarm_move_state = MOVE_DIRECTION.RIGHT
+	
+func get_vector_from_move_direction(direction):
+	var lateral_vector  = Vector2(18,0)
+	var downards_vector = Vector2(20,0)
+	
+	var result = Vector2(0,0)
+	
+	if(is_swarm_next_step_down):
+		result = downards_vector
+		is_swarm_next_step_down = false
+		switch_swarm_move_state()		
+	else:
+		match direction:
+			MOVE_DIRECTION.RIGHT:
+				result = lateral_vector
+			MOVE_DIRECTION.LEFT:
+				result = lateral_vector * -1
+		
+	
+	return result
+
+func move_swarm(direction):
+	var movement_vector = get_vector_from_move_direction(direction)
+	get_node("Swarm").position += movement_vector
+	
+var enemy_movement_cooldown = 0;
+func reset_enemy_movement_cooldown():
+	enemy_movement_cooldown = 100;
+
+func handle_move_swarm_timer(direction):
+	enemy_movement_cooldown -= 1
+	if(enemy_movement_cooldown<=0):
+		move_swarm(current_swarm_move_state)
+		reset_enemy_movement_cooldown()
 
 func _process(_delta):
+	handle_move_swarm_timer(current_swarm_move_state)
 	handle_shooting_timer()
 	
 func _ready():
 	instantiatee_swarm()
 	instantiate_player()
-	#move_swarm()
