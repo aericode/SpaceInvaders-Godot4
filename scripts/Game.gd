@@ -100,7 +100,7 @@ func handle_shooting_timer():
 
 enum MOVE_DIRECTION {LEFT, RIGHT}
 
-var current_swarm_move_state = MOVE_DIRECTION.RIGHT
+var current_swarm_move_state = MOVE_DIRECTION.LEFT
 var is_swarm_next_step_down = false
 
 func switch_swarm_move_state():
@@ -135,7 +135,7 @@ func move_swarm(direction):
 	
 var enemy_movement_cooldown = 0;
 func reset_enemy_movement_cooldown():
-	enemy_movement_cooldown = 100;
+	enemy_movement_cooldown = 10;
 
 func handle_move_swarm_timer():
 	enemy_movement_cooldown -= 1
@@ -145,12 +145,12 @@ func handle_move_swarm_timer():
 
 func compare_enemy_position(enemy1, enemy2, swarm_extremity:MOVE_DIRECTION):
 	if(swarm_extremity == MOVE_DIRECTION.RIGHT):
-		if(enemy1.position.x > enemy2.position.x):
+		if(enemy1.global_position.x > enemy2.global_position.x):
 			return enemy1
 		else:
 			return enemy2
 	if(swarm_extremity == MOVE_DIRECTION.LEFT):
-		if(enemy1.position.x < enemy2.position.x):
+		if(enemy1.global_position.x < enemy2.global_position.x):
 			return enemy1
 		else:
 			return enemy2
@@ -160,10 +160,27 @@ func get_swarm_extreme_position(swarm_extremity:MOVE_DIRECTION):
 	var most_extreme_enemy = enemies_array[0]
 	for enemy in enemies_array:
 		most_extreme_enemy = compare_enemy_position(enemy,most_extreme_enemy,swarm_extremity)
-	return most_extreme_enemy
+	return most_extreme_enemy.global_position.x
+
+func handle_swarm_move_state():
+#	if(is_swarm_next_step_down):
+#		return
+	print("current_swarm_move_state")
+	
+	var lower_x_boundary = 215
+	var upper_x_boundary = 950
+	var swarm_position = get_swarm_extreme_position(current_swarm_move_state)
+	
+	if(current_swarm_move_state == MOVE_DIRECTION.LEFT):
+		if(swarm_position < lower_x_boundary):
+			current_swarm_move_state = MOVE_DIRECTION.RIGHT
+	if(current_swarm_move_state == MOVE_DIRECTION.RIGHT):
+		if(swarm_position > upper_x_boundary):
+			current_swarm_move_state = MOVE_DIRECTION.RIGHT
 
 func _process(_delta):
 	handle_move_swarm_timer()
+	handle_swarm_move_state()
 	handle_shooting_timer()
 	
 func _ready():
