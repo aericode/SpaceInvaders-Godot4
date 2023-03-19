@@ -110,7 +110,7 @@ func switch_swarm_move_state():
 		current_swarm_move_state = MOVE_DIRECTION.RIGHT
 	
 func get_vector_from_move_direction(direction):
-	var lateral_vector  = Vector2(20,0)
+	var lateral_vector  = Vector2(18,0)
 	var downards_vector = Vector2(20,0)
 	
 	var result = Vector2(0,0)
