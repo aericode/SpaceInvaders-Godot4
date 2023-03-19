@@ -162,10 +162,6 @@ func get_swarm_extreme_position(swarm_extremity:MOVE_DIRECTION):
 	return most_extreme_enemy.global_position.x
 
 func handle_swarm_move_state():
-#	if(is_swarm_next_step_down):
-#		return
-	print("current_swarm_move_state")
-	
 	var lower_x_boundary = 215
 	var upper_x_boundary = 950
 	var swarm_position = get_swarm_extreme_position(current_swarm_move_state)
