@@ -162,17 +162,20 @@ func get_swarm_extreme_position(swarm_extremity:MOVE_DIRECTION):
 		most_extreme_enemy = compare_enemy_position(enemy,most_extreme_enemy,swarm_extremity)
 	return most_extreme_enemy.global_position.x
 
-func handle_swarm_move_state():
+
+func is_swarm_out_of_bounds():
 	var lower_x_boundary = 215
 	var upper_x_boundary = 950
 	var swarm_position = get_swarm_extreme_position(current_swarm_move_state)
+
+	var is_out_of_left_bound  = (current_swarm_move_state == MOVE_DIRECTION.LEFT)  && (swarm_position < lower_x_boundary)
+	var is_out_of_right_bound = (current_swarm_move_state == MOVE_DIRECTION.RIGHT) && (swarm_position > upper_x_boundary)
 	
-	if(current_swarm_move_state == MOVE_DIRECTION.LEFT):
-		if(swarm_position < lower_x_boundary):
-			swarm_move_down_and_switch_direction()
-	if(current_swarm_move_state == MOVE_DIRECTION.RIGHT):
-		if(swarm_position > upper_x_boundary):
-			swarm_move_down_and_switch_direction()
+	return is_out_of_left_bound or is_out_of_right_bound
+
+func handle_swarm_move_state():
+	if(is_swarm_out_of_bounds()):
+		swarm_move_down_and_switch_direction()
 
 func _process(_delta):
 	handle_move_swarm_timer()
