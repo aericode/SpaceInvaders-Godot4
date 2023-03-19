@@ -103,11 +103,12 @@ enum MOVE_DIRECTION {LEFT, RIGHT}
 var current_swarm_move_state = MOVE_DIRECTION.RIGHT
 var is_swarm_next_step_down = false
 
-func switch_swarm_move_state():
+func swarm_move_down_and_switch_direction():
 	if(current_swarm_move_state == MOVE_DIRECTION.RIGHT):
 		current_swarm_move_state = MOVE_DIRECTION.LEFT
 	else:
 		current_swarm_move_state = MOVE_DIRECTION.RIGHT
+	is_swarm_next_step_down = true
 	
 func get_vector_from_move_direction(direction):
 	var lateral_vector  = Vector2(18,0)
@@ -168,12 +169,10 @@ func handle_swarm_move_state():
 	
 	if(current_swarm_move_state == MOVE_DIRECTION.LEFT):
 		if(swarm_position < lower_x_boundary):
-			current_swarm_move_state = MOVE_DIRECTION.RIGHT
-			is_swarm_next_step_down = true
+			swarm_move_down_and_switch_direction()
 	if(current_swarm_move_state == MOVE_DIRECTION.RIGHT):
 		if(swarm_position > upper_x_boundary):
-			current_swarm_move_state = MOVE_DIRECTION.LEFT
-			is_swarm_next_step_down = true
+			swarm_move_down_and_switch_direction()
 
 func _process(_delta):
 	handle_move_swarm_timer()
