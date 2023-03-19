@@ -5,7 +5,7 @@ func destroy_self():
 	queue_free()
 
 func is_area_harmless_on_collision(area:Area2D):
-	return area.is_in_group("Enemy") || area.get_name()=="Player_bullet"
+	return area.is_in_group("Enemy")
 
 func _on_area_entered(area):	
 	if(!is_area_harmless_on_collision(area)):
