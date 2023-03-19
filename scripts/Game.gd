@@ -137,7 +137,7 @@ var enemy_movement_cooldown = 0;
 func reset_enemy_movement_cooldown():
 	enemy_movement_cooldown = 100;
 
-func handle_move_swarm_timer(direction):
+func handle_move_swarm_timer():
 	enemy_movement_cooldown -= 1
 	if(enemy_movement_cooldown<=0):
 		move_swarm(current_swarm_move_state)
@@ -163,7 +163,7 @@ func get_swarm_extreme_position(swarm_extremity:MOVE_DIRECTION):
 	return most_extreme_enemy
 
 func _process(_delta):
-	handle_move_swarm_timer(current_swarm_move_state)
+	handle_move_swarm_timer()
 	handle_shooting_timer()
 	
 func _ready():
