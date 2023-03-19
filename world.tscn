@@ -10,7 +10,7 @@ size = Vector2(823, 20)
 script = ExtResource("1_jr6ap")
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(170, 0)
+position = Vector2(175, 0)
 texture = ExtResource("2_pj646")
 centered = false
 
@@ -22,12 +22,12 @@ anchor_mode = 0
 [node name="Upper_bullet_destroyer" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Upper_bullet_destroyer"]
-position = Vector2(579.5, 0)
+position = Vector2(584.5, 0)
 shape = SubResource("RectangleShape2D_cw15e")
 
 [node name="Lower_bullet_destroyer" type="Area2D" parent="."]
 position = Vector2(0, 660)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lower_bullet_destroyer"]
-position = Vector2(579.5, 0)
+position = Vector2(586.5, 0)
 shape = SubResource("RectangleShape2D_cw15e")
