@@ -143,6 +143,25 @@ func handle_move_swarm_timer(direction):
 		move_swarm(current_swarm_move_state)
 		reset_enemy_movement_cooldown()
 
+func compare_enemy_position(enemy1, enemy2, swarm_extremity:MOVE_DIRECTION):
+	if(swarm_extremity == MOVE_DIRECTION.RIGHT):
+		if(enemy1.position.x > enemy2.position.x):
+			return enemy1
+		else:
+			return enemy2
+	if(swarm_extremity == MOVE_DIRECTION.LEFT):
+		if(enemy1.position.x < enemy2.position.x):
+			return enemy1
+		else:
+			return enemy2
+
+func get_swarm_extreme_position(swarm_extremity:MOVE_DIRECTION):
+	var enemies_array = get_node('Swarm').get_children()
+	var most_extreme_enemy = enemies_array[0]
+	for enemy in enemies_array:
+		most_extreme_enemy = compare_enemy_position(enemy,most_extreme_enemy,swarm_extremity)
+	return most_extreme_enemy
+
 func _process(_delta):
 	handle_move_swarm_timer(current_swarm_move_state)
 	handle_shooting_timer()
