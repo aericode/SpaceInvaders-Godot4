@@ -100,7 +100,7 @@ func handle_shooting_timer():
 
 enum MOVE_DIRECTION {LEFT, RIGHT}
 
-var current_swarm_move_state = MOVE_DIRECTION.LEFT
+var current_swarm_move_state = MOVE_DIRECTION.RIGHT
 var is_swarm_next_step_down = false
 
 func switch_swarm_move_state():
@@ -176,7 +176,7 @@ func handle_swarm_move_state():
 			current_swarm_move_state = MOVE_DIRECTION.RIGHT
 	if(current_swarm_move_state == MOVE_DIRECTION.RIGHT):
 		if(swarm_position > upper_x_boundary):
-			current_swarm_move_state = MOVE_DIRECTION.RIGHT
+			current_swarm_move_state = MOVE_DIRECTION.LEFT
 
 func _process(_delta):
 	handle_move_swarm_timer()
