@@ -111,14 +111,13 @@ func switch_swarm_move_state():
 	
 func get_vector_from_move_direction(direction):
 	var lateral_vector  = Vector2(18,0)
-	var downards_vector = Vector2(20,0)
+	var downards_vector = Vector2(0,20)
 	
 	var result = Vector2(0,0)
 	
 	if(is_swarm_next_step_down):
 		result = downards_vector
 		is_swarm_next_step_down = false
-		switch_swarm_move_state()		
 	else:
 		match direction:
 			MOVE_DIRECTION.RIGHT:
@@ -174,9 +173,11 @@ func handle_swarm_move_state():
 	if(current_swarm_move_state == MOVE_DIRECTION.LEFT):
 		if(swarm_position < lower_x_boundary):
 			current_swarm_move_state = MOVE_DIRECTION.RIGHT
+			is_swarm_next_step_down = true
 	if(current_swarm_move_state == MOVE_DIRECTION.RIGHT):
 		if(swarm_position > upper_x_boundary):
 			current_swarm_move_state = MOVE_DIRECTION.LEFT
+			is_swarm_next_step_down = true
 
 func _process(_delta):
 	handle_move_swarm_timer()
