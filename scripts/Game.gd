@@ -15,5 +15,5 @@ func _process(_delta):
 	
 func _ready():
 	Swarm.instantiate_swarm()
-	Shields.instantiate_shield(Vector2(590, 515))
+	Shields.instantiate_shield_set()
 	instantiate_player()

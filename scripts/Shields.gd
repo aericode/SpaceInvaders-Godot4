@@ -30,4 +30,8 @@ func instantiate_shield(shield_origin_position:Vector2):
 	instantiate_full_line(get_line_origin_position(shield_origin_position, 1))
 	instantiate_half_line(get_line_origin_position(shield_origin_position, 2))
 	
-	
+func instantiate_shield_set():
+	instantiate_shield(Vector2(320, 515))
+	instantiate_shield(Vector2(410, 515))
+	instantiate_shield(Vector2(590, 515))
+	instantiate_shield(Vector2(640, 515))
