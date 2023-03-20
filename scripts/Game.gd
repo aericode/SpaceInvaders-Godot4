@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var Swarm = get_node("Swarm")
+@onready var Shields = get_node("Shields")
 
 func instantiate_player():
 	var player_resource = preload("res://resources/Player.tscn")
@@ -14,4 +15,5 @@ func _process(_delta):
 	
 func _ready():
 	Swarm.instantiate_swarm()
+	Shields.instantiate_full_line(Vector2(590, 515))
 	instantiate_player()

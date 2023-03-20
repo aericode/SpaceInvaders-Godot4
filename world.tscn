@@ -13,7 +13,6 @@ size = Vector2(823, 20)
 script = ExtResource("1_jr6ap")
 
 [node name="background" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(175, 0)
 texture = ExtResource("2_pj646")
 centered = false
