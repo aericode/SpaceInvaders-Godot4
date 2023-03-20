@@ -29,9 +29,15 @@ func instantiate_shield(shield_origin_position:Vector2):
 	instantiate_full_line(get_line_origin_position(shield_origin_position, 0))
 	instantiate_full_line(get_line_origin_position(shield_origin_position, 1))
 	instantiate_half_line(get_line_origin_position(shield_origin_position, 2))
+
+func get_shield_position(shield_index):
+	var shield_set_origin  = Vector2(280, 515)
+	var shield_horizontal_margin = 180
+	return Vector2(shield_set_origin.x + shield_index*shield_horizontal_margin, shield_set_origin.y)
 	
 func instantiate_shield_set():
-	instantiate_shield(Vector2(320, 515))
-	instantiate_shield(Vector2(410, 515))
-	instantiate_shield(Vector2(590, 515))
-	instantiate_shield(Vector2(640, 515))
+	var number_of_shields = 4
+	
+	for shield_index in number_of_shields:
+		instantiate_shield(get_shield_position(shield_index))
+
