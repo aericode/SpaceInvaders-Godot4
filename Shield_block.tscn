@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://djq7k6vieg4ji"]
+[gd_scene load_steps=3 format=3 uid="uid://djq7k6vieg4ji"]
 
-[node name="Shield_block" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://bklqv8gykfouo" path="res://assets/shield_bricks/brick100.png" id="1_f1avr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mlwl"]
+
+[node name="Shield_block" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f1avr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7mlwl")
