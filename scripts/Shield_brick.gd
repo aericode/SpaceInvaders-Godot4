@@ -25,3 +25,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func handle_shot():
+	current_health -= 1
+#	if(current_health <= 0):
+#		queue_free()
+#	else:
+#		get_sprite_based_on_health()
+	
+
+func _on_area_entered(area):
+	if(area.get_name()=="Payer_bullet" || area.get_name()=="Enemy_bullet"):
+		pass
