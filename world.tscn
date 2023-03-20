@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d26gwj26ofwsf"]
+[gd_scene load_steps=7 format=3 uid="uid://b7sjy52b5mg4x"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_jr6ap"]
 [ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/background.png" id="2_pj646"]
 [ext_resource type="Script" path="res://scripts/Swarm.gd" id="3_bco6c"]
 [ext_resource type="Script" path="res://scripts/Shields.gd" id="4_yxfgk"]
-[ext_resource type="PackedScene" uid="uid://djq7k6vieg4ji" path="res://resources/Shield_block.tscn" id="5_oiwio"]
+[ext_resource type="PackedScene" uid="uid://djq7k6vieg4ji" path="res://resources/Shield_brick.tscn" id="5_oiwio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cw15e"]
 size = Vector2(823, 20)

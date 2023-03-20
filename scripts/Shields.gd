@@ -3,7 +3,7 @@ extends Node2D
 
 
 func instantiate_brick(brick_position: Vector2):
-	var brick_resource = preload("res://resources/Shield_block.tscn")
+	var brick_resource = preload("res://resources/Shield_brick.tscn")
 	var brick = brick_resource.instantiate()
 	brick.position = brick_position
 	get_node("/root/World").add_child(brick)

@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://djq7k6vieg4ji"]
 
-[ext_resource type="Script" path="res://scripts/Shield_brick.gd" id="1_r84ig"]
-[ext_resource type="Texture2D" uid="uid://bklqv8gykfouo" path="res://assets/shield_bricks/brick100.png" id="2_bgfsw"]
+[ext_resource type="Script" path="res://scripts/Shield_brick.gd" id="1_285hi"]
+[ext_resource type="Texture2D" uid="uid://bklqv8gykfouo" path="res://assets/shield_bricks/brick100.png" id="2_fodn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7mlwl"]
 
 [node name="Shield_brick" type="Area2D"]
-script = ExtResource("1_r84ig")
+script = ExtResource("1_285hi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_bgfsw")
+texture = ExtResource("2_fodn3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7mlwl")
