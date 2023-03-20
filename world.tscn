@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d26gwj26ofwsf"]
+[gd_scene load_steps=7 format=3 uid="uid://d26gwj26ofwsf"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_jr6ap"]
 [ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/background.png" id="2_pj646"]
 [ext_resource type="Script" path="res://scripts/Swarm.gd" id="3_bco6c"]
-[ext_resource type="PackedScene" uid="uid://djq7k6vieg4ji" path="res://resources/Shield_block.tscn" id="4_qtxin"]
+[ext_resource type="Script" path="res://scripts/Shields.gd" id="4_yxfgk"]
+[ext_resource type="PackedScene" uid="uid://djq7k6vieg4ji" path="res://resources/Shield_block.tscn" id="5_oiwio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cw15e"]
 size = Vector2(823, 20)
@@ -12,12 +13,16 @@ size = Vector2(823, 20)
 script = ExtResource("1_jr6ap")
 
 [node name="background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(175, 0)
 texture = ExtResource("2_pj646")
 centered = false
 
 [node name="Swarm" type="Node2D" parent="."]
 script = ExtResource("3_bco6c")
+
+[node name="Shields" type="Node2D" parent="."]
+script = ExtResource("4_yxfgk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -35,5 +40,5 @@ position = Vector2(0, 660)
 position = Vector2(586.5, 0)
 shape = SubResource("RectangleShape2D_cw15e")
 
-[node name="Shield_brick" parent="." instance=ExtResource("4_qtxin")]
-position = Vector2(560, 447)
+[node name="Shield_brick" parent="." instance=ExtResource("5_oiwio")]
+position = Vector2(630, 490)
