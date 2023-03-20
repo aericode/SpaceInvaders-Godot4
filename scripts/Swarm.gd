@@ -83,7 +83,7 @@ func enemy_shoot():
 	
 var enemy_shooting_cooldown = 0;
 func reset_enemy_shooting_cooldown():
-	enemy_shooting_cooldown = 80;
+	enemy_shooting_cooldown = 60;
 
 func handle_shooting_timer():
 	enemy_shooting_cooldown -= 1
@@ -129,7 +129,7 @@ func move_swarm(direction):
 	
 var enemy_movement_cooldown = 0;
 func reset_enemy_movement_cooldown():
-	enemy_movement_cooldown = 10;
+	enemy_movement_cooldown = 30;
 
 func handle_move_swarm_timer():
 	enemy_movement_cooldown -= 1
@@ -172,7 +172,6 @@ func handle_swarm_move_state():
 		swarm_move_down_and_switch_direction()
 
 func _process(_delta):
-	#handle_move_swarm_timer()
-	#handle_swarm_move_state()
-	#handle_shooting_timer()
-	pass
+	handle_move_swarm_timer()
+	handle_swarm_move_state()
+	handle_shooting_timer()
