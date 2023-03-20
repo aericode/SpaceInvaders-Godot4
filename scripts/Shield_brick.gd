@@ -28,12 +28,12 @@ func _process(delta):
 
 func handle_shot():
 	current_health -= 1
-#	if(current_health <= 0):
-#		queue_free()
-#	else:
-#		get_sprite_based_on_health()
+	if(current_health <= 0):
+		queue_free()
+	else:
+		get_sprite_based_on_health()
 	
 
 func _on_area_entered(area):
-	if(area.get_name()=="Payer_bullet" || area.get_name()=="Enemy_bullet"):
-		pass
+	if(area.get_name()=="Player_bullet" || area.get_name()=="Enemy_bullet"):
+		handle_shot()

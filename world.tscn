@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d26gwj26ofwsf"]
+[gd_scene load_steps=6 format=3 uid="uid://d26gwj26ofwsf"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_jr6ap"]
 [ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/background.png" id="2_pj646"]
 [ext_resource type="Script" path="res://scripts/Swarm.gd" id="3_bco6c"]
+[ext_resource type="PackedScene" uid="uid://djq7k6vieg4ji" path="res://resources/Shield_block.tscn" id="4_qtxin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cw15e"]
 size = Vector2(823, 20)
@@ -33,3 +34,6 @@ position = Vector2(0, 660)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lower_bullet_destroyer"]
 position = Vector2(586.5, 0)
 shape = SubResource("RectangleShape2D_cw15e")
+
+[node name="Shield_brick" parent="." instance=ExtResource("4_qtxin")]
+position = Vector2(560, 447)
