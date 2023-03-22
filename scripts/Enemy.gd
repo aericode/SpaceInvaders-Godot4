@@ -5,12 +5,12 @@ extends Area2D
 var row_index;
 var column_index;
 
-func destroy_self():
+func die():
 	queue_free()
 
 func _on_area_entered(area):
 	if(area.get_name()=="Player_bullet"):
-		destroy_self()
+		die()
 
 func spawn_bullet():
 	var bullet_resource = preload("res://resources/Enemy_bullet.tscn")
