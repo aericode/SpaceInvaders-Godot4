@@ -6,6 +6,7 @@ var row_index;
 var column_index;
 
 func die():
+	Global.score += score_value
 	queue_free()
 
 func _on_area_entered(area):
