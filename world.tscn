@@ -16,11 +16,11 @@ position = Vector2(175, 0)
 texture = ExtResource("2_pj646")
 centered = false
 
-[node name="Swarm" type="Node2D" parent="."]
-script = ExtResource("3_bco6c")
-
 [node name="Shields" type="Node2D" parent="."]
 script = ExtResource("4_yxfgk")
+
+[node name="Swarm" type="Node2D" parent="."]
+script = ExtResource("3_bco6c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

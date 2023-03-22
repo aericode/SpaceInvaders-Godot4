@@ -6,7 +6,7 @@ func instantiate_brick(brick_position: Vector2):
 	var brick_resource = preload("res://resources/Shield_brick.tscn")
 	var brick = brick_resource.instantiate()
 	brick.position = brick_position
-	get_node("/root/World").add_child(brick)
+	add_child(brick)
 
 
 func get_brick_position_in_line(line_origin_position:Vector2, brick_index):
