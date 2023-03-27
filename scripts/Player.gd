@@ -28,6 +28,10 @@ func handle_shooting():
 	if (Input.is_action_just_pressed("shoot") && can_shoot()):
 		spawn_bullet()
 
+func respawn():
+	const respawn_location = Vector2(580, 615)
+	get_node("/root/World").add_child(self)
+	
 func _process(_delta):
 	handle_movement()
 	handle_shooting()

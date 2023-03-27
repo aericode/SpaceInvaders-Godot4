@@ -19,6 +19,3 @@ texture = ExtResource("2_j5alm")
 visible = false
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_qry6w")
-
-[node name="muzzle" type="Node2D" parent="."]
-position = Vector2(0, -5)
