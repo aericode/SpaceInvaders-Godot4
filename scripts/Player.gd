@@ -7,6 +7,15 @@ extends Area2D
 
 var bullet = null
 
+@onready var invincible       = true
+@onready var invincible_timer = 300
+
+func handle_invincible_timer():
+	if(invincible_timer <= 0):
+		invincible = false
+	else:
+		invincible_timer-=1
+
 func handle_movement():
 	var input = 0
 	if Input.is_action_pressed("right"):
@@ -28,10 +37,8 @@ func handle_shooting():
 	if (Input.is_action_just_pressed("shoot") && can_shoot()):
 		spawn_bullet()
 
-func respawn():
-	const respawn_location = Vector2(580, 615)
-	get_node("/root/World").add_child(self)
-	
 func _process(_delta):
+	if(invincible):
+		handle_invincible_timer()
 	handle_movement()
 	handle_shooting()
