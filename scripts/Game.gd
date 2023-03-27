@@ -6,6 +6,6 @@ extends Node2D
 
 	
 func _ready():
-	Player_controller.instantiate_player()
+	Player_controller.respawn_player()
 	Swarm.instantiate_swarm()
 	Shields.instantiate_shield_set()
