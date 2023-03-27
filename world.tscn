@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7sjy52b5mg4x"]
+[gd_scene load_steps=8 format=3 uid="uid://b7sjy52b5mg4x"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_jr6ap"]
 [ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/background.png" id="2_pj646"]
 [ext_resource type="Script" path="res://scripts/Swarm.gd" id="3_bco6c"]
+[ext_resource type="Script" path="res://scripts/Player_controller.gd" id="3_g2bcc"]
 [ext_resource type="Script" path="res://scripts/Shields.gd" id="4_yxfgk"]
 [ext_resource type="Script" path="res://scripts/Score_display.gd" id="5_ywgty"]
 
@@ -16,6 +17,9 @@ script = ExtResource("1_jr6ap")
 position = Vector2(175, 0)
 texture = ExtResource("2_pj646")
 centered = false
+
+[node name="Player_controller" type="Node2D" parent="."]
+script = ExtResource("3_g2bcc")
 
 [node name="Shields" type="Node2D" parent="."]
 script = ExtResource("4_yxfgk")
