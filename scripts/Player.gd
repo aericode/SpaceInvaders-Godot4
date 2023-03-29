@@ -7,14 +7,27 @@ extends Area2D
 
 var bullet = null
 
-@onready var invincible       = true
-@onready var invincible_timer = 300
+var invincible:bool
+var invincible_timer = 300
 
 @onready var Player_controller = get_node("/root/World/Player_controller")
 
+
+func _ready():
+	get_invincible()
+
+func get_invincible():
+	invincible = true
+	$AnimationPlayer.play("blinking")
+
+func lose_invincible():
+	invincible = false
+	$AnimationPlayer.stop()
+	$Sprite2D.set_material(null)
+
 func handle_invincible_timer():
 	if(invincible_timer <= 0):
-		invincible = false
+		lose_invincible()
 	else:
 		invincible_timer-=1
 
