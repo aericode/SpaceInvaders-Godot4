@@ -1,10 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgmxniq8unrky"]
+[gd_scene load_steps=9 format=3 uid="uid://bgmxniq8unrky"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_8hv5u"]
 [ext_resource type="Texture2D" uid="uid://syjgg661qs1a" path="res://assets/player.png" id="2_j5alm"]
+[ext_resource type="Shader" path="res://shaders/blink_shader.gdshader" id="2_o1a6v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ve6rc"]
+shader = ExtResource("2_o1a6v")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qry6w"]
 size = Vector2(36, 14)
+
+[sub_resource type="Animation" id="Animation_vwagi"]
+resource_name = "blinking"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_6n3ee"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tdeaa"]
+_data = {
+"RESET": SubResource("Animation_6n3ee"),
+"blinking": SubResource("Animation_vwagi")
+}
 
 [node name="player" type="Area2D"]
 script = ExtResource("1_8hv5u")
@@ -12,6 +55,7 @@ player_limit_begin = 195
 player_limit_end = 975
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ve6rc")
 scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("2_j5alm")
 
@@ -19,5 +63,10 @@ texture = ExtResource("2_j5alm")
 visible = false
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_qry6w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tdeaa")
+}
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
