@@ -7,7 +7,7 @@ extends Area2D
 
 var bullet = null
 
-var invincible:bool
+var is_invincible:bool
 var invincible_timer = 300
 
 @onready var Player_controller = get_node("/root/World/Player_controller")
@@ -17,11 +17,11 @@ func _ready():
 	get_invincible()
 
 func get_invincible():
-	invincible = true
+	is_invincible = true
 	$AnimationPlayer.play("blinking")
 
 func lose_invincible():
-	invincible = false
+	is_invincible = false
 	$AnimationPlayer.stop()
 	$Sprite2D.set_material(null)
 
@@ -54,14 +54,15 @@ func can_shoot():
 	
 func _on_area_entered(area):
 	if(area.get_name()=="Enemy_bullet"):
-		die()
+		if(!is_invincible):
+			die()
 	
 func handle_shooting():
 	if (Input.is_action_just_pressed("shoot") && can_shoot()):
 		spawn_bullet()
 
 func _process(_delta):
-	if(invincible):
+	if(is_invincible):
 		handle_invincible_timer()
 	handle_movement()
 	handle_shooting()
