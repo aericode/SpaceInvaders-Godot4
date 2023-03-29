@@ -10,6 +10,8 @@ var bullet = null
 @onready var invincible       = true
 @onready var invincible_timer = 300
 
+@onready var Player_controller = get_node("/root/World/Player_controller")
+
 func handle_invincible_timer():
 	if(invincible_timer <= 0):
 		invincible = false
@@ -30,8 +32,16 @@ func spawn_bullet():
 	bullet.position = get_position() + Vector2(0,-5)
 	get_node("/root/World").add_child(bullet)
 
+func die():
+	Player_controller.handle_death()
+	queue_free()
+
 func can_shoot():
 	return bullet == null
+	
+func _on_area_entered(area):
+	if(area.get_name()=="Enemy_bullet"):
+		die()
 	
 func handle_shooting():
 	if (Input.is_action_just_pressed("shoot") && can_shoot()):
