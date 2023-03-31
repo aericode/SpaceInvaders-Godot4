@@ -172,6 +172,7 @@ func handle_swarm_move_state():
 		swarm_move_down_and_switch_direction()
 
 func _process(_delta):
-	handle_move_swarm_timer()
-	handle_swarm_move_state()
-	handle_shooting_timer()
+	if(has_enemies()):
+		handle_move_swarm_timer()
+		handle_swarm_move_state()
+		handle_shooting_timer()
