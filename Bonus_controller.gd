@@ -1,11 +1,11 @@
 extends Node2D
 
-@onready var timer = 30
+var timer
 var is_bonus_active = false
 
 func set_random_timer():
-	timer = randi() % 500 + 1000  # generates a random integer between 0 and 9
-
+	is_bonus_active = false
+	timer = randi() % 500 + 700  # generates a random integer between 0 and 9
 	
 func handle_spawner():
 	if (is_bonus_active):
