@@ -15,8 +15,21 @@ func update_timer():
 	timer +=1
 
 func calculate_score(timer):
-	return (6 - ceil(timer/72))*50
+	return (6 - ceil(timer/60))*50
+
+func die():
+	Global.score += calculate_score(timer)
+	queue_free()
+
+func _on_area_entered(area):
+	if(area.get_name()=="Player_bullet"):
+		die()
+
 
 func _process(delta):
+	print(calculate_score(timer))
+	update_timer()
 	handle_screen_limit()
 	move()
+
+
