@@ -1,6 +1,7 @@
 extends Area2D
 
 var timer = 0
+@onready var bonus_controller = get_node("/root/World/Bonus_controller")
 
 func move():
 	var movement_vector = Vector2(-2,0)
@@ -8,6 +9,7 @@ func move():
 
 func handle_screen_limit():
 	if(timer >= 360):
+		bonus_controller.on_ship_removed()
 		queue_free()
 
 func update_timer():
@@ -17,6 +19,7 @@ func calculate_score():
 	return (6 - ceil(timer/60))*50
 
 func die():
+	bonus_controller.on_ship_removed()
 	Global.score += calculate_score()
 	queue_free()
 
