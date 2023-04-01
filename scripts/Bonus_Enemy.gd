@@ -7,18 +7,17 @@ func move():
 	position += movement_vector
 
 func handle_screen_limit():
-	const screen_limit = 225
-	if(position.x < screen_limit):
+	if(timer >= 360):
 		queue_free()
 
 func update_timer():
 	timer +=1
 
-func calculate_score(timer):
+func calculate_score():
 	return (6 - ceil(timer/60))*50
 
 func die():
-	Global.score += calculate_score(timer)
+	Global.score += calculate_score()
 	queue_free()
 
 func _on_area_entered(area):
@@ -27,7 +26,6 @@ func _on_area_entered(area):
 
 
 func _process(delta):
-	print(calculate_score(timer))
 	update_timer()
 	handle_screen_limit()
 	move()

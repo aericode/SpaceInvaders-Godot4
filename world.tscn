@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/background.png" id="2_pj646"]
 [ext_resource type="Script" path="res://scripts/Swarm.gd" id="3_bco6c"]
 [ext_resource type="Script" path="res://scripts/Player_controller.gd" id="3_g2bcc"]
+[ext_resource type="Script" path="res://Bonus_controller.gd" id="3_t1quh"]
 [ext_resource type="Script" path="res://scripts/Shields.gd" id="4_yxfgk"]
 [ext_resource type="Script" path="res://scripts/Score_display.gd" id="5_ywgty"]
-[ext_resource type="PackedScene" uid="uid://dqce22fkr212j" path="res://resources/Bonus_Enemy.tscn" id="7_r3kca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cw15e"]
 size = Vector2(823, 20)
@@ -18,6 +18,9 @@ script = ExtResource("1_jr6ap")
 position = Vector2(175, 0)
 texture = ExtResource("2_pj646")
 centered = false
+
+[node name="Bonus_controller" type="Node2D" parent="."]
+script = ExtResource("3_t1quh")
 
 [node name="Player_controller" type="Node2D" parent="."]
 script = ExtResource("3_g2bcc")
@@ -51,6 +54,3 @@ position = Vector2(0, 660)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lower_bullet_destroyer"]
 position = Vector2(586.5, 0)
 shape = SubResource("RectangleShape2D_cw15e")
-
-[node name="Bonus_Enemy" parent="." instance=ExtResource("7_r3kca")]
-position = Vector2(942, 25)
