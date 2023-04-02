@@ -83,7 +83,7 @@ func enemy_shoot():
 	
 var enemy_shooting_cooldown = 0;
 func reset_enemy_shooting_cooldown():
-	enemy_shooting_cooldown = 60;
+	enemy_shooting_cooldown = 20 + randi() % 20;
 
 func handle_shooting_timer():
 	enemy_shooting_cooldown -= 1
@@ -134,7 +134,7 @@ func move_swarm(direction):
 	
 var enemy_movement_cooldown = 0;
 func reset_enemy_movement_cooldown():
-	enemy_movement_cooldown = get_enemy_number()*1.5
+	enemy_movement_cooldown = get_enemy_number()
 
 func handle_move_swarm_timer():
 	enemy_movement_cooldown -= 1
