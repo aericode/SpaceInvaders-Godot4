@@ -123,13 +123,18 @@ func get_vector_from_move_direction(direction):
 	
 	return result
 
+func get_enemy_number():
+	var enemy_array = get_children()
+	var enemy_count = enemy_array.size()
+	return enemy_count
+
 func move_swarm(direction):
 	var movement_vector = get_vector_from_move_direction(direction)
 	position += movement_vector
 	
 var enemy_movement_cooldown = 0;
 func reset_enemy_movement_cooldown():
-	enemy_movement_cooldown = 30;
+	enemy_movement_cooldown = get_enemy_number()*1.7
 
 func handle_move_swarm_timer():
 	enemy_movement_cooldown -= 1
