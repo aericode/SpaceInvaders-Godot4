@@ -134,7 +134,7 @@ func move_swarm(direction):
 	
 var enemy_movement_cooldown = 0;
 func reset_enemy_movement_cooldown():
-	enemy_movement_cooldown = get_enemy_number()*1.7
+	enemy_movement_cooldown = get_enemy_number()*1.5
 
 func handle_move_swarm_timer():
 	enemy_movement_cooldown -= 1
