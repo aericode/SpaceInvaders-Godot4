@@ -5,7 +5,7 @@ var is_bonus_active = false
 
 func set_random_timer():
 	is_bonus_active = false
-	timer = randi() % 500 + 1000
+	timer = randi() % 500 + 2000
 	
 func handle_spawner():
 	if (is_bonus_active):

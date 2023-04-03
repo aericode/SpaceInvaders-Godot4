@@ -188,3 +188,5 @@ func _process(_delta):
 		handle_move_swarm_timer()
 		handle_swarm_move_state()
 		handle_shooting_timer()
+	else:
+		reset_swarm()
