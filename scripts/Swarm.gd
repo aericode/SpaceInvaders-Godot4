@@ -175,6 +175,13 @@ func is_swarm_out_of_bounds():
 func handle_swarm_move_state():
 	if(is_swarm_out_of_bounds()):
 		swarm_move_down_and_switch_direction()
+		
+func reset_position():
+	position = Vector2.ZERO
+
+func reset_swarm():
+	reset_position()
+	instantiate_swarm()
 
 func _process(_delta):
 	if(has_enemies()):
