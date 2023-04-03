@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var is_respawning = false
-const RESPAWN_TIME =  200
+const RESPAWN_TIME =  100
 const RESPAWN_POSITION = Vector2(580, 615)
 var player_respawn_timer = 0
 

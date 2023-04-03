@@ -8,7 +8,7 @@ extends Area2D
 var bullet = null
 
 var is_invincible:bool
-var invincible_timer = 300
+var invincible_timer = 200
 
 @onready var Player_controller = get_node("/root/World/Player_controller")
 
