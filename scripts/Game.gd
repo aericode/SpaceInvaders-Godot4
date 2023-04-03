@@ -8,7 +8,7 @@ extends Node2D
 
 func reset_game():
 	Player_controller.respawn_player()
-	Swarm.instantiate_swarm()
+	Swarm.reset_swarm()
 	Shields.instantiate_shield_set()
 	Bonus_controller.set_random_timer()
 
@@ -17,6 +17,6 @@ func reset_game():
 
 func _ready():
 	Player_controller.respawn_player()
-	Swarm.instantiate_swarm()
+	Swarm.reset_swarm()
 	Shields.instantiate_shield_set()
 	Bonus_controller.set_random_timer()

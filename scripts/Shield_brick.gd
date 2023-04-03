@@ -13,7 +13,7 @@ func get_sprite_based_on_health():
 			brick_sprite = preload("res://assets/shield_bricks/brick50.png")
 		1:
 			brick_sprite = preload("res://assets/shield_bricks/brick25.png")
-		var default:
+		var _default:
 			brick_sprite = null
 	get_node("Sprite2D").texture = brick_sprite
 
@@ -23,7 +23,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func handle_shot():

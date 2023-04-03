@@ -31,5 +31,5 @@ func on_ship_removed():
 	is_bonus_active = false
 	set_random_timer()
 
-func _process(delta):
+func _process(_delta):
 	handle_spawner()

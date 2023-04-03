@@ -32,6 +32,6 @@ func handle_death():
 	else:
 		prepare_respawn()
 
-func _process(delta):
+func _process(_delta):
 	if(is_respawning):
 		handle_respawn_timer()

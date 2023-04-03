@@ -1,6 +1,6 @@
 extends Area2D
 
-var timer = 0
+var timer:int = 0
 @onready var bonus_controller = get_node("/root/World/Bonus_controller")
 
 func move():
@@ -28,7 +28,7 @@ func _on_area_entered(area):
 		die()
 
 
-func _process(delta):
+func _process(_delta):
 	update_timer()
 	handle_screen_limit()
 	move()
