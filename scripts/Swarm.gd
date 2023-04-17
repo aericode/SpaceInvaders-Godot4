@@ -131,10 +131,16 @@ func get_enemy_number():
 func move_swarm(direction):
 	var movement_vector = get_vector_from_move_direction(direction)
 	position += movement_vector
-	
+
+func get_enemy_movement_cooldown():
+	const max_cooldown = 55
+	const min_cooldown = 1
+	var movement_cooldown = clamp(get_enemy_number(), min_cooldown , max_cooldown - (Global.level * 5))
+	return movement_cooldown
+
 var enemy_movement_cooldown = 0;
 func reset_enemy_movement_cooldown():
-	enemy_movement_cooldown = get_enemy_number()
+	enemy_movement_cooldown = get_enemy_movement_cooldown()
 
 func handle_move_swarm_timer():
 	enemy_movement_cooldown -= 1
