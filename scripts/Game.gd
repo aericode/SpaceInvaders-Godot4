@@ -19,4 +19,4 @@ func _ready():
 	Player_controller.respawn_player()
 	Swarm.reset_swarm()
 	Shields.instantiate_shield_set()
-	Bonus_controller.spawn_ship()
+	Bonus_controller.set_random_timer()
