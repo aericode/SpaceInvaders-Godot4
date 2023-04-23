@@ -1,12 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://2tjp3anfdexa"]
+[gd_scene load_steps=3 format=3 uid="uid://2tjp3anfdexa"]
 
-[sub_resource type="GDScript" id="GDScript_tb6sa"]
-script/source = "extends Label
-
-func _process(_delta):
-	
-	self.text = \"SCORE\" + \"\\n\" + str(Global.score) + \"\\n\\n\" + \"LIVES\" + \"\\n\" + str(Global.lives) + \"\\n\\n\" + \"LEVEL\" + \"\\n\" + str(Global.level)
-"
+[ext_resource type="Script" path="res://scripts/Score_display.gd" id="1_4e61o"]
+[ext_resource type="Script" path="res://Retun_button.gd" id="2_5bo18"]
 
 [node name="Game_over" type="Node2D"]
 
@@ -24,4 +19,12 @@ offset_top = 256.0
 offset_right = 652.0
 offset_bottom = 390.0
 horizontal_alignment = 1
-script = SubResource("GDScript_tb6sa")
+script = ExtResource("1_4e61o")
+
+[node name="Retun_button" type="Button" parent="."]
+offset_left = 464.0
+offset_top = 483.0
+offset_right = 698.0
+offset_bottom = 530.0
+text = "Return to main Menu"
+script = ExtResource("2_5bo18")
