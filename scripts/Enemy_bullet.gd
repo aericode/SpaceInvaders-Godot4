@@ -8,9 +8,8 @@ func is_area_harmless_on_collision(area:Area2D):
 	return area.is_in_group("Enemy")
 
 func _on_area_entered(area):
-	print(area.get_name())
-	if(area.get_name()=="Player"):
-		area.handle_getting_hit()
+	if area.has_method('handle_shot'):
+		area.handle_shot()
 	if(!is_area_harmless_on_collision(area)):
 		destroy_self()
 

@@ -52,7 +52,7 @@ func die():
 func can_shoot():
 	return bullet == null
 	
-func handle_getting_hit():
+func handle_shot():
 	if(!is_invincible):
 		die()
 	
