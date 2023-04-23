@@ -189,10 +189,15 @@ func reset_swarm():
 	reset_position()
 	instantiate_swarm()
 
+
+func handle_level_up():
+	Global.level += 1
+	reset_swarm()
+
 func _process(_delta):
 	if(has_enemies()):
 		handle_move_swarm_timer()
 		handle_swarm_move_state()
 		handle_shooting_timer()
 	else:
-		reset_swarm()
+		handle_level_up()
