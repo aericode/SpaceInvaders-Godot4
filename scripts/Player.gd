@@ -52,10 +52,9 @@ func die():
 func can_shoot():
 	return bullet == null
 	
-func _on_area_entered(area):
-	if(area.get_name()=="Enemy_bullet"):
-		if(!is_invincible):
-			die()
+func handle_getting_hit():
+	if(!is_invincible):
+		die()
 	
 func handle_shooting():
 	if (Input.is_action_just_pressed("shoot") && can_shoot()):

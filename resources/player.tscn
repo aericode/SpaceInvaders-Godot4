@@ -50,7 +50,7 @@ _data = {
 "blinking": SubResource("Animation_vwagi")
 }
 
-[node name="player" type="Area2D"]
+[node name="Player" type="Area2D"]
 script = ExtResource("1_8hv5u")
 player_limit_begin = 195
 player_limit_end = 975
