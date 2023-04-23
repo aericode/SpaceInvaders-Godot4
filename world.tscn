@@ -38,6 +38,7 @@ offset_right = 1152.0
 offset_bottom = 150.0
 horizontal_alignment = 1
 script = ExtResource("5_ywgty")
+isDisplayLives = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://2tjp3anfdexa"]
+
+[sub_resource type="GDScript" id="GDScript_tb6sa"]
+script/source = "extends Label
+
+func _process(_delta):
+	
+	self.text = \"SCORE\" + \"\\n\" + str(Global.score) + \"\\n\\n\" + \"LIVES\" + \"\\n\" + str(Global.lives) + \"\\n\\n\" + \"LEVEL\" + \"\\n\" + str(Global.level)
+"
+
+[node name="Game_over" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 440.0
+offset_top = 143.0
+offset_right = 535.0
+offset_bottom = 167.0
+scale = Vector2(3, 3)
+text = "Game Over!"
+
+[node name="Game_over_score_display" type="Label" parent="."]
+offset_left = 496.0
+offset_top = 256.0
+offset_right = 652.0
+offset_bottom = 390.0
+horizontal_alignment = 1
+script = SubResource("GDScript_tb6sa")
