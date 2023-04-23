@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var Game = get_node("/root/World")
 
 func instantiate_enemy(enemy_position:Vector2, row_index, column_index):
 	var enemy_resource = preload("res://resources/Enemy.tscn")
@@ -190,14 +191,10 @@ func reset_swarm():
 	instantiate_swarm()
 
 
-func handle_level_up():
-	Global.level += 1
-	reset_swarm()
-
 func _process(_delta):
 	if(has_enemies()):
 		handle_move_swarm_timer()
 		handle_swarm_move_state()
 		handle_shooting_timer()
 	else:
-		handle_level_up()
+		Game.level_up()
