@@ -136,7 +136,7 @@ func move_swarm(direction):
 func get_enemy_movement_cooldown():
 	const max_cooldown = 55
 	const min_cooldown = 1
-	var movement_cooldown = clamp(get_enemy_number(), min_cooldown , max_cooldown - (Global.level * 5))
+	var movement_cooldown = clamp(get_enemy_number(), min_cooldown , max_cooldown - (Global.level * 5)) + 2
 	return movement_cooldown
 
 var enemy_movement_cooldown = 0;
