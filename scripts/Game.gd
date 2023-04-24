@@ -22,9 +22,12 @@ func level_up():
 	Bonus_controller.set_random_timer()
 	Global.level += 1
 
+func handle_game_over():
+	get_tree().change_scene_to_file("res://Game_over.tscn")
+
 func _ready():
 	reset_game()
 	
 func _process(_delta):
 	if(Global.lives == 0):
-		get_tree().change_scene_to_file("res://Game_over.tscn")
+		handle_game_over()

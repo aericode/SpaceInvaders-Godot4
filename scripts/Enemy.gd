@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var Game = get_node("/root/World")
 @export var score_value = 0;
 
 var row_index;
@@ -18,8 +19,14 @@ func spawn_bullet():
 	var bullet = bullet_resource.instantiate()
 	bullet.position = global_position + Vector2(0,-5)
 	get_node("/root/World").add_child(bullet)
-	
-	
+
+func handle_reaching_player():
+	if(position.y >= 600):
+		Game.handle_game_over()
+		
 func shoot():
 	spawn_bullet()
+
+func _process(delta):
+	handle_reaching_player()
 
