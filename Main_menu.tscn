@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://csak1konim0ud"]
+[gd_scene load_steps=4 format=3 uid="uid://csak1konim0ud"]
 
 [ext_resource type="Script" path="res://scripts/New_game_button.gd" id="1_gjtj7"]
+[ext_resource type="Script" path="res://High_scores_button.gd" id="2_v8sfq"]
+[ext_resource type="Script" path="res://scripts/Data_controller.gd" id="2_yjk51"]
 
 [node name="Main_menu" type="Node2D"]
 
@@ -18,6 +20,7 @@ offset_top = 543.0
 offset_right = 659.0
 offset_bottom = 574.0
 text = "Hi-Scores"
+script = ExtResource("2_v8sfq")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 405.0
@@ -26,3 +29,6 @@ offset_right = 530.0
 offset_bottom = 194.0
 scale = Vector2(3, 3)
 text = "Space Invaders"
+
+[node name="Data_controller" type="Node" parent="."]
+script = ExtResource("2_yjk51")
