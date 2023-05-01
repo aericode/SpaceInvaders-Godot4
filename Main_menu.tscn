@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://csak1konim0ud"]
+[gd_scene load_steps=4 format=3 uid="uid://dbsxdpw52e8jb"]
 
+[ext_resource type="Script" path="res://Main_menu.gd" id="1_4vylj"]
 [ext_resource type="Script" path="res://scripts/New_game_button.gd" id="1_gjtj7"]
-[ext_resource type="Script" path="res://High_scores_button.gd" id="2_v8sfq"]
-[ext_resource type="Script" path="res://scripts/Data_controller.gd" id="2_yjk51"]
+[ext_resource type="Script" path="res://scripts/Hi_score_manager.gd" id="2_kiaen"]
 
 [node name="Main_menu" type="Node2D"]
+script = ExtResource("1_4vylj")
 
 [node name="New_game_button" type="Button" parent="."]
 offset_left = 494.0
@@ -14,14 +15,6 @@ offset_bottom = 522.0
 text = "New Game"
 script = ExtResource("1_gjtj7")
 
-[node name="High_scores_button" type="Button" parent="."]
-offset_left = 494.0
-offset_top = 543.0
-offset_right = 659.0
-offset_bottom = 574.0
-text = "Hi-Scores"
-script = ExtResource("2_v8sfq")
-
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 405.0
 offset_top = 154.0
@@ -30,5 +23,5 @@ offset_bottom = 194.0
 scale = Vector2(3, 3)
 text = "Space Invaders"
 
-[node name="Data_controller" type="Node" parent="."]
-script = ExtResource("2_yjk51")
+[node name="Hi_score_manager" type="Node" parent="."]
+script = ExtResource("2_kiaen")
