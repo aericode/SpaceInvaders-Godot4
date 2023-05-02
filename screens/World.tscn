@@ -1,35 +1,35 @@
 [gd_scene load_steps=9 format=3 uid="uid://b7sjy52b5mg4x"]
 
-[ext_resource type="Script" path="res://scripts/Game.gd" id="1_jr6ap"]
-[ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/background.png" id="2_pj646"]
-[ext_resource type="Script" path="res://scripts/Swarm.gd" id="3_bco6c"]
-[ext_resource type="Script" path="res://scripts/Player_controller.gd" id="3_g2bcc"]
-[ext_resource type="Script" path="res://Bonus_controller.gd" id="3_t1quh"]
-[ext_resource type="Script" path="res://scripts/Shields.gd" id="4_yxfgk"]
-[ext_resource type="Script" path="res://scripts/Score_display.gd" id="5_ywgty"]
+[ext_resource type="Script" path="res://scripts/Game.gd" id="1_5pvu0"]
+[ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/background.png" id="2_cq3kp"]
+[ext_resource type="Script" path="res://Bonus_controller.gd" id="3_q7v8g"]
+[ext_resource type="Script" path="res://scripts/Player_controller.gd" id="4_635nn"]
+[ext_resource type="Script" path="res://scripts/Shields.gd" id="5_0nhq2"]
+[ext_resource type="Script" path="res://scripts/Swarm.gd" id="6_62tms"]
+[ext_resource type="Script" path="res://scripts/Score_display.gd" id="7_j7h08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cw15e"]
 size = Vector2(823, 20)
 
 [node name="World" type="Node2D" groups=["Enemies"]]
-script = ExtResource("1_jr6ap")
+script = ExtResource("1_5pvu0")
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(175, 0)
-texture = ExtResource("2_pj646")
+texture = ExtResource("2_cq3kp")
 centered = false
 
 [node name="Bonus_controller" type="Node2D" parent="."]
-script = ExtResource("3_t1quh")
+script = ExtResource("3_q7v8g")
 
 [node name="Player_controller" type="Node2D" parent="."]
-script = ExtResource("3_g2bcc")
+script = ExtResource("4_635nn")
 
 [node name="Shields" type="Node2D" parent="."]
-script = ExtResource("4_yxfgk")
+script = ExtResource("5_0nhq2")
 
 [node name="Swarm" type="Node2D" parent="."]
-script = ExtResource("3_bco6c")
+script = ExtResource("6_62tms")
 
 [node name="Score_display" type="Label" parent="."]
 offset_left = 996.0
@@ -37,7 +37,7 @@ offset_top = 16.0
 offset_right = 1152.0
 offset_bottom = 150.0
 horizontal_alignment = 1
-script = ExtResource("5_ywgty")
+script = ExtResource("7_j7h08")
 isDisplayLives = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

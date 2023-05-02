@@ -23,7 +23,7 @@ func level_up():
 	Global.level += 1
 
 func handle_game_over():
-	get_tree().change_scene_to_file("res://Game_over.tscn")
+	get_tree().change_scene_to_file("res://screens/Game_over.tscn")
 
 func _ready():
 	reset_game()
