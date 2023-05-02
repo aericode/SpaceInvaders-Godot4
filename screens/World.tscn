@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7sjy52b5mg4x"]
+[gd_scene load_steps=9 format=3 uid="uid://bnikgucinw5r3"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_5pvu0"]
 [ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/background.png" id="2_cq3kp"]
-[ext_resource type="Script" path="res://Bonus_controller.gd" id="3_q7v8g"]
+[ext_resource type="Script" path="res://scripts/Bonus_controller.gd" id="3_r38gj"]
 [ext_resource type="Script" path="res://scripts/Player_controller.gd" id="4_635nn"]
 [ext_resource type="Script" path="res://scripts/Shields.gd" id="5_0nhq2"]
 [ext_resource type="Script" path="res://scripts/Swarm.gd" id="6_62tms"]
@@ -20,7 +20,7 @@ texture = ExtResource("2_cq3kp")
 centered = false
 
 [node name="Bonus_controller" type="Node2D" parent="."]
-script = ExtResource("3_q7v8g")
+script = ExtResource("3_r38gj")
 
 [node name="Player_controller" type="Node2D" parent="."]
 script = ExtResource("4_635nn")

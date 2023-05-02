@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://2tjp3anfdexa"]
+[gd_scene load_steps=3 format=3 uid="uid://m4qg07q0xrt2"]
 
 [ext_resource type="Script" path="res://scripts/Score_display.gd" id="1_4e61o"]
-[ext_resource type="Script" path="res://Retun_button.gd" id="2_5bo18"]
+[ext_resource type="Script" path="res://scripts/Retun_button.gd" id="2_4cypk"]
 
 [node name="Game_over" type="Node2D"]
 
@@ -27,4 +27,4 @@ offset_top = 483.0
 offset_right = 698.0
 offset_bottom = 530.0
 text = "Return to main Menu"
-script = ExtResource("2_5bo18")
+script = ExtResource("2_4cypk")
