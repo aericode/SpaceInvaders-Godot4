@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnikgucinw5r3"]
+[gd_scene load_steps=11 format=3 uid="uid://bnikgucinw5r3"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_5pvu0"]
 [ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/background.png" id="2_cq3kp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/Swarm.gd" id="6_62tms"]
 [ext_resource type="Script" path="res://scripts/Score_display.gd" id="7_j7h08"]
 [ext_resource type="Script" path="res://scripts/Hi_score_ingame_display.gd" id="8_2xe1a"]
+[ext_resource type="Script" path="res://scripts/Level_clear_dialog.gd" id="9_7uabk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cw15e"]
 size = Vector2(823, 20)
@@ -65,22 +66,25 @@ offset_bottom = 99.0
 horizontal_alignment = 1
 script = ExtResource("8_2xe1a")
 
-[node name="Level_clear_dialog" type="Node" parent="."]
+[node name="Level_clear_dialog" type="Node2D" parent="."]
+process_mode = 2
+visible = false
+script = ExtResource("9_7uabk")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Level_clear_dialog"]
 offset_left = 452.0
-offset_top = 273.0
+offset_top = 296.0
 offset_right = 719.0
-offset_bottom = 378.0
+offset_bottom = 401.0
 border_color = Color(0.635294, 0.929412, 0.133333, 1)
 border_width = 4.0
 editor_only = false
 
 [node name="Label" type="Label" parent="Level_clear_dialog"]
 offset_left = 457.0
-offset_top = 276.0
+offset_top = 299.0
 offset_right = 715.0
-offset_bottom = 375.0
+offset_bottom = 398.0
 text = "LEVEL CLEAR!
 PRESS SPACEBAR TO CONTINUE"
 horizontal_alignment = 1
