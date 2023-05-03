@@ -25,9 +25,12 @@ func show_level_clear_dialog():
 	
 func level_up():
 	show_level_clear_dialog()
+
+func set_next_stage():
 	Swarm.reset_swarm()
 	Bonus_controller.set_random_timer()
 	Global.level += 1
+
 
 func handle_game_over():
 	get_tree().change_scene_to_file("res://screens/Game_over.tscn")
