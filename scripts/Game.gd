@@ -7,6 +7,9 @@ extends Node2D
 
 @onready var Level_clear_dialog = get_node("Level_clear_dialog")
 
+@onready var life_up_audio = get_node("/root/World/Game_sounds/life_up")
+@onready var level_up_audio = get_node("/root/World/Game_sounds/level_up")
+
 func reset_globals():
 	Global.level = 0
 	Global.lives = 3
@@ -18,6 +21,7 @@ func handle_extra_life():
 	if(Global.score >= Global.extra_lives_earned*EXTRA_LIFE_THRESHOLD + EXTRA_LIFE_THRESHOLD):
 		Global.lives += 1
 		Global.extra_lives_earned += 1
+		life_up_audio.play()		
 
 func score_points(new_points:int):
 	Global.score += new_points
@@ -35,6 +39,7 @@ func show_level_clear_dialog():
 	get_tree().paused = true
 	
 func level_up():
+	level_up_audio.play()
 	show_level_clear_dialog()
 
 func set_next_stage():

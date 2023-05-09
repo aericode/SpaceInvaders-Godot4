@@ -11,7 +11,8 @@ var is_invincible:bool
 var invincible_timer = 200
 
 @onready var Player_controller = get_node("/root/World/Player_controller")
-
+@onready var shot_audio = get_node("/root/World/Game_sounds/shot")
+@onready var explosion_audio = get_node("/root/World/Game_sounds/player_explosion")
 
 func _ready():
 	get_invincible()
@@ -54,10 +55,12 @@ func can_shoot():
 	
 func handle_shot():
 	if(!is_invincible):
+		explosion_audio.play()	
 		die()
 	
 func handle_shooting():
 	if (Input.is_action_just_pressed("shoot") && can_shoot()):
+		shot_audio.play()
 		spawn_bullet()
 
 func _process(_delta):

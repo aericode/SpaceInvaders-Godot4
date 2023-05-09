@@ -3,6 +3,8 @@ extends Area2D
 @onready var Game = get_node("/root/World")
 @export var score_value = 0;
 
+@onready var explosion_audio = get_node("/root/World/Game_sounds/enemy_explosion")
+
 var row_index;
 var column_index;
 
@@ -12,6 +14,7 @@ func die():
 
 func _on_area_entered(area):
 	if(area.get_name()=="Player_bullet"):
+		explosion_audio.play()
 		die()
 
 func spawn_bullet():
