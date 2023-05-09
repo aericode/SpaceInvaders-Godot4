@@ -7,7 +7,7 @@ var row_index;
 var column_index;
 
 func die():
-	Global.score += score_value
+	Game.score_points(score_value)
 	queue_free()
 
 func _on_area_entered(area):
@@ -27,6 +27,6 @@ func handle_reaching_player():
 func shoot():
 	spawn_bullet()
 
-func _process(delta):
+func _process(_delta):
 	handle_reaching_player()
 

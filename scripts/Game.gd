@@ -11,6 +11,17 @@ func reset_globals():
 	Global.level = 0
 	Global.lives = 3
 	Global.score = 0
+	Global.extra_lives_earned = 0
+
+func handle_extra_life():
+	const EXTRA_LIFE_THRESHOLD = 1000
+	if(Global.score >= Global.extra_lives_earned*EXTRA_LIFE_THRESHOLD + EXTRA_LIFE_THRESHOLD):
+		Global.lives += 1
+		Global.extra_lives_earned += 1
+
+func score_points(new_points:int):
+	Global.score += new_points
+	handle_extra_life()
 
 func reset_game():
 	reset_globals()

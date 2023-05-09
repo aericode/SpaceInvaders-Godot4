@@ -65,3 +65,6 @@ func _process(_delta):
 		handle_invincible_timer()
 	handle_movement()
 	handle_shooting()
+	
+func _on_area_entered(_area):
+	pass
