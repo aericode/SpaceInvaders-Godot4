@@ -3,6 +3,7 @@ extends Area2D
 var timer:int = 0
 @onready var bonus_controller = get_node("/root/World/Bonus_controller")
 @onready var game = get_node("/root/World")
+@onready var explosion_sound = get_node("/root/World/Game_sounds/enemy_explosion")
 
 func move():
 	var movement_vector = Vector2(-2,0)
@@ -27,6 +28,7 @@ func die():
 
 func _on_area_entered(area):
 	if(area.get_name()=="Player_bullet"):
+		explosion_sound.play()
 		die()
 
 
