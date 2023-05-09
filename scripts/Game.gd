@@ -17,7 +17,7 @@ func reset_globals():
 	Global.extra_lives_earned = 0
 
 func handle_extra_life():
-	const EXTRA_LIFE_THRESHOLD = 1000
+	const EXTRA_LIFE_THRESHOLD = 2000
 	if(Global.score >= Global.extra_lives_earned*EXTRA_LIFE_THRESHOLD + EXTRA_LIFE_THRESHOLD):
 		Global.lives += 1
 		Global.extra_lives_earned += 1
