@@ -2,6 +2,7 @@ extends Area2D
 
 var timer:int = 0
 @onready var bonus_controller = get_node("/root/World/Bonus_controller")
+@onready var game = get_node("/root/World")
 
 func move():
 	var movement_vector = Vector2(-2,0)
@@ -20,7 +21,8 @@ func calculate_score():
 
 func die():
 	bonus_controller.on_ship_removed()
-	Global.score += calculate_score()
+	var score_value = calculate_score()
+	game.score_points(score_value)
 	queue_free()
 
 func _on_area_entered(area):
