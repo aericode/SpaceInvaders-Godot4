@@ -23,20 +23,20 @@ func handle_screen_open_delay():
 
 func configure_resume_actions(menu_type:String):
 	if(menu_type == "pause"):
-		exit_key == "escape"
+		exit_key = "escape"
 		call_next_level = false
 		end_game = false
 		message = "PAUSED!"
 	elif(menu_type == "level_up"):
-		exit_key == "shoot"
+		exit_key = "shoot"
 		call_next_level = true
 		end_game = false
 		message = "LEVEL CLEAR!"
 	elif(menu_type == "game_over"):
-		exit_key == "escape"
+		exit_key = "escape"
 		call_next_level = true
 		end_game = false
-		message == "GAME OVER"
+		message = "GAME OVER"
 	else:
 		push_error("warning: invalid pause menu type action")
 
@@ -55,6 +55,11 @@ func display_dialog(menu_type: String):
 	get_tree().paused = true
 	update_message_label()
 
+func handle_resume_action():
+	if(call_next_level):
+		Game.set_next_stage()
+	elif(end_game):
+		get_tree().change_scene_to_file("res://screens/Game_over.tscn")
 
 func handle_exit_key_press():
 	if(exit_key!= "shoot" && exit_key != "escape"):
@@ -62,9 +67,8 @@ func handle_exit_key_press():
 	if(visible && Input.is_action_just_pressed(exit_key)):
 		visible = false
 		get_tree().paused = false
-		if(call_next_level):
-			Game.set_next_stage()
-
+		handle_resume_action()
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	handle_screen_open_delay()
