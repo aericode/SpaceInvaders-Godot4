@@ -35,8 +35,7 @@ func reset_game():
 	Bonus_controller.set_random_timer()
 
 func show_level_clear_dialog():
-	Level_clear_dialog.visible = true;
-	get_tree().paused = true
+	Level_clear_dialog.display_dialog("Level Clear!", "shoot")
 	
 func level_up():
 	level_up_audio.play()

@@ -4,6 +4,19 @@ extends Node2D
 
 var exit_key: String = "shoot"
 
+
+
+func display_dialog(message: String, exit_key:String):
+	visible = true
+	get_tree().paused = true
+	var display_key
+	self.exit_key = exit_key
+	if(exit_key == "shoot"):
+		display_key = "SPACE"
+	if(exit_key == "escape"):
+		display_key = "ESC"
+	get_node("Message_label").text = message + "\n\n" + "press " + display_key + " to continue"
+
 func handle_exit_key_press():
 	if(exit_key!= "shoot" && exit_key != "escape"):
 		push_warning("warning: invalid exit key for pause menu")
