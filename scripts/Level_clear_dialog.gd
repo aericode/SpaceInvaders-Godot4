@@ -34,8 +34,8 @@ func configure_resume_actions(menu_type:String):
 		message = "LEVEL CLEAR!"
 	elif(menu_type == "game_over"):
 		exit_key = "escape"
-		call_next_level = true
-		end_game = false
+		call_next_level = false
+		end_game = true
 		message = "GAME OVER"
 	else:
 		push_error("warning: invalid pause menu type action")
@@ -59,7 +59,7 @@ func handle_resume_action():
 	if(call_next_level):
 		Game.set_next_stage()
 	elif(end_game):
-		get_tree().change_scene_to_file("res://screens/Game_over.tscn")
+		get_tree().change_scene_to_file("res://screens/Main_menu.tscn")
 
 func handle_exit_key_press():
 	if(exit_key!= "shoot" && exit_key != "escape"):

@@ -48,11 +48,10 @@ func set_next_stage():
 
 
 func handle_game_over():
-	get_tree().change_scene_to_file("res://screens/Game_over.tscn")
+	Level_clear_dialog.display_dialog("game_over")
 
 func _ready():
 	reset_game()
-	
 
 func handle_player_pause():
 	if(Input.is_action_just_pressed("escape")):

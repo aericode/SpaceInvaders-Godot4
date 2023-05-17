@@ -112,9 +112,11 @@ stream = ExtResource("12_bx3er")
 volume_db = 4.0
 
 [node name="life_up" type="AudioStreamPlayer" parent="Game_sounds"]
+process_mode = 3
 stream = ExtResource("13_wu6d7")
 volume_db = 15.0
 
 [node name="player_explosion" type="AudioStreamPlayer" parent="Game_sounds"]
+process_mode = 3
 stream = ExtResource("14_a6fku")
 volume_db = -8.0
