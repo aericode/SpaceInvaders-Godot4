@@ -4,9 +4,21 @@ extends Node2D
 
 var exit_key: String = "shoot"
 
+var delay_counter = 20
+var can_quit_message = false 
 
+func start_delay_counter():
+	delay_counter = 20
+	can_quit_message = false 
+
+func handle_screen_open_delay():
+	if(delay_counter >0):
+		delay_counter -=1
+	else:
+		can_quit_message = true
 
 func display_dialog(message: String, exit_key:String):
+	start_delay_counter()
 	visible = true
 	get_tree().paused = true
 	var display_key
@@ -23,8 +35,9 @@ func handle_exit_key_press():
 	if(visible && Input.is_action_just_pressed(exit_key)):
 		visible = false
 		get_tree().paused = false
-		Game.set_next_stage()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	handle_exit_key_press()
+	handle_screen_open_delay()
+	if(can_quit_message):
+		handle_exit_key_press()
