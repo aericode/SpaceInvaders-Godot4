@@ -71,12 +71,12 @@ offset_bottom = 99.0
 horizontal_alignment = 1
 script = ExtResource("8_2xe1a")
 
-[node name="Level_clear_dialog" type="Node2D" parent="."]
+[node name="Message_dialog" type="Node2D" parent="."]
 process_mode = 2
 visible = false
 script = ExtResource("9_7uabk")
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Level_clear_dialog"]
+[node name="ReferenceRect" type="ReferenceRect" parent="Message_dialog"]
 offset_left = 452.0
 offset_top = 296.0
 offset_right = 719.0
@@ -85,7 +85,7 @@ border_color = Color(0.635294, 0.929412, 0.133333, 1)
 border_width = 4.0
 editor_only = false
 
-[node name="Message_label" type="Label" parent="Level_clear_dialog"]
+[node name="Message_label" type="Label" parent="Message_dialog"]
 offset_left = 457.0
 offset_top = 299.0
 offset_right = 715.0

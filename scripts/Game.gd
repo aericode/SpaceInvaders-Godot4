@@ -5,7 +5,7 @@ extends Node2D
 @onready var Player_controller = get_node("Player_controller")
 @onready var Bonus_controller = get_node("Bonus_controller")
 
-@onready var Level_clear_dialog = get_node("Level_clear_dialog")
+@onready var Message_dialog = get_node("Message_dialog")
 
 @onready var life_up_audio = get_node("/root/World/Game_sounds/life_up")
 @onready var level_up_audio = get_node("/root/World/Game_sounds/level_up")
@@ -35,7 +35,7 @@ func reset_game():
 	Bonus_controller.set_random_timer()
 
 func show_level_clear_dialog():
-	Level_clear_dialog.display_dialog("level_up")
+	Message_dialog.display_dialog("level_up")
 
 func level_up():
 	level_up_audio.play()
@@ -48,14 +48,14 @@ func set_next_stage():
 
 
 func handle_game_over():
-	Level_clear_dialog.display_dialog("game_over")
+	Message_dialog.display_dialog("game_over")
 
 func _ready():
 	reset_game()
 
 func handle_player_pause():
 	if(Input.is_action_just_pressed("escape")):
-		Level_clear_dialog.display_dialog("pause")
+		Message_dialog.display_dialog("pause")
 		
 func _process(_delta):
 	handle_player_pause()
