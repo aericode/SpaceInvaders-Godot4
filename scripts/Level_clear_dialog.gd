@@ -2,11 +2,14 @@ extends Node2D
 
 @onready var Game = get_node("/root/World")
 
-var exit_key: String = "shoot"
 
 var delay_counter = 20
 var can_quit_message = false
+
+var exit_key: String = "shoot"
 var call_next_level = false
+var end_game = false
+var message = ""
 
 func start_delay_counter():
 	delay_counter = 20
@@ -18,18 +21,39 @@ func handle_screen_open_delay():
 	else:
 		can_quit_message = true
 
-func display_dialog(message: String, exit_key:String, call_next_level = false):
-	start_delay_counter()
-	visible = true
-	get_tree().paused = true
-	self.call_next_level = call_next_level
+func configure_resume_actions(menu_type:String):
+	if(menu_type == "pause"):
+		exit_key == "escape"
+		call_next_level = false
+		end_game = false
+		message = "PAUSED!"
+	elif(menu_type == "level_up"):
+		exit_key == "shoot"
+		call_next_level = true
+		end_game = false
+		message = "LEVEL CLEAR!"
+	elif(menu_type == "game_over"):
+		exit_key == "escape"
+		call_next_level = true
+		end_game = false
+		message == "GAME OVER"
+	else:
+		push_error("warning: invalid pause menu type action")
+
+func update_message_label():
 	var display_key
-	self.exit_key = exit_key
 	if(exit_key == "shoot"):
 		display_key = "SPACE"
 	if(exit_key == "escape"):
 		display_key = "ESC"
 	get_node("Message_label").text = message + "\n\n" + "press " + display_key + " to continue"
+
+func display_dialog(menu_type: String):
+	configure_resume_actions(menu_type)
+	start_delay_counter()
+	visible = true
+	get_tree().paused = true
+	update_message_label()
 
 
 func handle_exit_key_press():
