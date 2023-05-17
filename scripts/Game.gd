@@ -35,9 +35,8 @@ func reset_game():
 	Bonus_controller.set_random_timer()
 
 func show_level_clear_dialog():
-	Level_clear_dialog.display_dialog("LEVEL CLEAR!", "shoot")
-	set_next_stage()
-	
+	Level_clear_dialog.display_dialog("LEVEL CLEAR!", "shoot", true)
+
 func level_up():
 	level_up_audio.play()
 	show_level_clear_dialog()
@@ -52,7 +51,8 @@ func handle_game_over():
 	get_tree().change_scene_to_file("res://screens/Game_over.tscn")
 
 func _ready():
-	reset_game()
+	level_up()
+	#reset_game()
 	
 
 func handle_player_pause():
