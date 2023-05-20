@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmg2khq814o5c"]
+[gd_scene load_steps=16 format=3 uid="uid://bsomhf1lab1rr"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_5pvu0"]
-[ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/background.png" id="2_cq3kp"]
+[ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/gui/background.png" id="2_1pawd"]
 [ext_resource type="Script" path="res://scripts/Bonus_controller.gd" id="3_r38gj"]
 [ext_resource type="Script" path="res://scripts/Player_controller.gd" id="4_635nn"]
 [ext_resource type="Script" path="res://scripts/Shields.gd" id="5_0nhq2"]
@@ -23,7 +23,7 @@ script = ExtResource("1_5pvu0")
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(175, 0)
-texture = ExtResource("2_cq3kp")
+texture = ExtResource("2_1pawd")
 centered = false
 
 [node name="Bonus_controller" type="Node2D" parent="."]

@@ -1,43 +1,39 @@
 [gd_scene load_steps=4 format=3 uid="uid://dldy830ua51rb"]
 
 [ext_resource type="Script" path="res://scripts/Main_menu.gd" id="1_q6xps"]
-[ext_resource type="Script" path="res://scripts/New_game_button.gd" id="2_p0kw6"]
+[ext_resource type="Texture2D" uid="uid://b6fe25e6oraah" path="res://assets/gui/titlle.png" id="2_12tde"]
 [ext_resource type="Script" path="res://scripts/Hi_score_manager.gd" id="3_f4vhk"]
 
 [node name="Main_menu" type="Node2D"]
 script = ExtResource("1_q6xps")
 
-[node name="New_game_button" type="Button" parent="."]
-offset_left = 494.0
-offset_top = 491.0
-offset_right = 659.0
-offset_bottom = 522.0
-text = "New Game"
-script = ExtResource("2_p0kw6")
-
-[node name="Game_title" type="RichTextLabel" parent="."]
-offset_left = 405.0
-offset_top = 154.0
-offset_right = 530.0
-offset_bottom = 194.0
-scale = Vector2(3, 3)
-text = "Space Invaders"
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575, 325.95)
+scale = Vector2(0.9, 0.905432)
+texture = ExtResource("2_12tde")
 
 [node name="Hi_score_manager" type="Node" parent="."]
 script = ExtResource("3_f4vhk")
 
 [node name="Hi_score_banner" type="RichTextLabel" parent="."]
-offset_left = 543.0
-offset_top = 343.0
-offset_right = 620.0
-offset_bottom = 370.0
+offset_left = 533.0
+offset_top = 455.0
+offset_right = 610.0
+offset_bottom = 482.0
 text = "HI-SCORE"
 
 [node name="Hi_score_display" type="RichTextLabel" parent="."]
-offset_left = 454.0
-offset_top = 370.0
-offset_right = 701.0
-offset_bottom = 397.0
+offset_left = 447.0
+offset_top = 485.0
+offset_right = 694.0
+offset_bottom = 512.0
 bbcode_enabled = true
 text = "[center]0[/center]
 "
+
+[node name="Game_start_banner" type="Label" parent="."]
+offset_left = 481.0
+offset_top = 374.0
+offset_right = 663.0
+offset_bottom = 400.0
+text = "PRESS SPACE TO START!"
