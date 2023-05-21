@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bsomhf1lab1rr"]
+[gd_scene load_steps=17 format=3 uid="uid://bsomhf1lab1rr"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_5pvu0"]
 [ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/gui/background.png" id="2_1pawd"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://34e3fbrnj8qd" path="res://sfx/level_up.wav" id="12_bx3er"]
 [ext_resource type="AudioStream" uid="uid://my5jkvjsxoa0" path="res://sfx/life_up.wav" id="13_wu6d7"]
 [ext_resource type="AudioStream" uid="uid://dwu2ix07ppj11" path="res://sfx/player_explosion.wav" id="14_a6fku"]
+[ext_resource type="Script" path="res://scripts/Hi_score_manager.gd" id="15_e6bdj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cw15e"]
 size = Vector2(823, 20)
@@ -45,7 +46,6 @@ offset_right = 1152.0
 offset_bottom = 150.0
 horizontal_alignment = 1
 script = ExtResource("7_j7h08")
-isDisplayLives = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -120,3 +120,6 @@ volume_db = 15.0
 process_mode = 3
 stream = ExtResource("14_a6fku")
 volume_db = -8.0
+
+[node name="Hi_score_manager" type="Node" parent="."]
+script = ExtResource("15_e6bdj")

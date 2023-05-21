@@ -1,12 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://m4qg07q0xrt2"]
+[gd_scene load_steps=5 format=3 uid="uid://cgco0bl667u43"]
 
 [ext_resource type="Script" path="res://scripts/Score_display.gd" id="1_4e61o"]
-[ext_resource type="Script" path="res://scripts/Game_over.gd" id="1_smbfy"]
-[ext_resource type="Script" path="res://scripts/Retun_button.gd" id="2_4cypk"]
 [ext_resource type="Script" path="res://scripts/Hi_score_manager.gd" id="4_3032d"]
 
+[sub_resource type="GDScript" id="GDScript_nj1c5"]
+script/source = "extends Node2D
+
+@onready var Hi_score_manager = get_node(\"Hi_score_manager\")
+@onready var Hi_score_congratulations_message = get_node(\"Hi_score_congratulations_message\")
+# Called when the node enters the scene tree for the first time.
+
+func handle_postgame():
+	if(Global.score > Global.hi_score):
+		Hi_score_manager.save_hi_score(Global.score)
+		Hi_score_congratulations_message.visible = true
+
+
+func _ready():
+	handle_postgame()
+
+"
+
+[sub_resource type="GDScript" id="GDScript_jsfii"]
+script/source = "extends Button
+
+
+func _ready():
+	pressed.connect(self._button_pressed)
+
+func _button_pressed():
+	get_tree().change_scene_to_file(\"res://screens/Main_menu.tscn\")
+"
+
 [node name="Game_over" type="Node2D"]
-script = ExtResource("1_smbfy")
+script = SubResource("GDScript_nj1c5")
 
 [node name="Game_over_text" type="RichTextLabel" parent="."]
 offset_left = 440.0
@@ -30,7 +57,7 @@ offset_top = 483.0
 offset_right = 698.0
 offset_bottom = 530.0
 text = "Return to main Menu"
-script = ExtResource("2_4cypk")
+script = SubResource("GDScript_jsfii")
 
 [node name="Hi_score_congratulations_message" type="Label" parent="."]
 visible = false
