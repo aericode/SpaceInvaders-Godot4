@@ -73,6 +73,7 @@ script = ExtResource("8_2xe1a")
 
 [node name="Message_dialog" type="Node2D" parent="."]
 process_mode = 2
+visible = false
 script = ExtResource("9_7uabk")
 
 [node name="ColorRect" type="ColorRect" parent="Message_dialog"]
