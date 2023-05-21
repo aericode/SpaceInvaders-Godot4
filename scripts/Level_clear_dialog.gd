@@ -37,11 +37,6 @@ func configure_resume_actions(menu_type:String):
 		call_next_level = false
 		end_game = true
 		message = "GAME OVER"
-	elif(menu_type == "hi_score"):
-		exit_key = "escape"
-		call_next_level = false
-		end_game = true
-		message = "HI-SCORE!!!"
 	else:
 		push_error("warning: invalid pause menu type action")
 

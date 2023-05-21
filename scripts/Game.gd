@@ -10,8 +10,6 @@ extends Node2D
 @onready var life_up_audio = get_node("/root/World/Game_sounds/life_up")
 @onready var level_up_audio = get_node("/root/World/Game_sounds/level_up")
 
-@onready var Hi_score_manager = get_node("Hi_score_manager")
-
 func reset_globals():
 	Global.level = 0
 	Global.lives = 3
@@ -50,10 +48,6 @@ func set_next_stage():
 
 
 func handle_game_over():
-	if(Global.score > Global.hi_score):
-		Message_dialog.display_dialog("hi_score")
-		Hi_score_manager.save_hi_score(Global.score)
-	else:
 		Message_dialog.display_dialog("game_over")
 
 func _ready():

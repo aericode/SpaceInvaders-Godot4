@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bsomhf1lab1rr"]
+[gd_scene load_steps=15 format=3 uid="uid://bsomhf1lab1rr"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_5pvu0"]
 [ext_resource type="Texture2D" uid="uid://wpikt5qmqj6o" path="res://assets/gui/background.png" id="2_1pawd"]
@@ -7,14 +7,12 @@
 [ext_resource type="Script" path="res://scripts/Shields.gd" id="5_0nhq2"]
 [ext_resource type="Script" path="res://scripts/Swarm.gd" id="6_62tms"]
 [ext_resource type="Script" path="res://scripts/Score_display.gd" id="7_j7h08"]
-[ext_resource type="Script" path="res://scripts/Hi_score_ingame_display.gd" id="8_2xe1a"]
 [ext_resource type="Script" path="res://scripts/Level_clear_dialog.gd" id="9_7uabk"]
 [ext_resource type="AudioStream" uid="uid://dmvqv4y0bji8y" path="res://sfx/shot.wav" id="10_h3ueo"]
 [ext_resource type="AudioStream" uid="uid://dyd8cousd2jt5" path="res://sfx/enemy_explosion.wav" id="11_72ob5"]
 [ext_resource type="AudioStream" uid="uid://34e3fbrnj8qd" path="res://sfx/level_up.wav" id="12_bx3er"]
 [ext_resource type="AudioStream" uid="uid://my5jkvjsxoa0" path="res://sfx/life_up.wav" id="13_wu6d7"]
 [ext_resource type="AudioStream" uid="uid://dwu2ix07ppj11" path="res://sfx/player_explosion.wav" id="14_a6fku"]
-[ext_resource type="Script" path="res://scripts/Hi_score_manager.gd" id="15_e6bdj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cw15e"]
 size = Vector2(823, 20)
@@ -67,14 +65,6 @@ position = Vector2(0, 660)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lower_bullet_destroyer"]
 position = Vector2(586.5, 0)
 shape = SubResource("RectangleShape2D_cw15e")
-
-[node name="hi_score_ingame_display" type="Label" parent="."]
-offset_left = 6.0
-offset_top = 12.0
-offset_right = 166.0
-offset_bottom = 99.0
-horizontal_alignment = 1
-script = ExtResource("8_2xe1a")
 
 [node name="Message_dialog" type="Node2D" parent="."]
 process_mode = 2
@@ -132,6 +122,3 @@ volume_db = 15.0
 process_mode = 3
 stream = ExtResource("14_a6fku")
 volume_db = -8.0
-
-[node name="Hi_score_manager" type="Node" parent="."]
-script = ExtResource("15_e6bdj")
