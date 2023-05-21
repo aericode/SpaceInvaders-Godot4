@@ -84,7 +84,7 @@ func enemy_shoot():
 	
 var enemy_shooting_cooldown = 0;
 func reset_enemy_shooting_cooldown():
-	enemy_shooting_cooldown = 20 + randi() % 20 + max(0, 50 - Global.level*5);
+	enemy_shooting_cooldown = 10 + randi() % 20 + max(0, 30 - Global.level*5);
 
 func handle_shooting_timer():
 	enemy_shooting_cooldown -= 1
