@@ -73,8 +73,14 @@ script = ExtResource("8_2xe1a")
 
 [node name="Message_dialog" type="Node2D" parent="."]
 process_mode = 2
-visible = false
 script = ExtResource("9_7uabk")
+
+[node name="ColorRect" type="ColorRect" parent="Message_dialog"]
+offset_left = 454.0
+offset_top = 297.0
+offset_right = 717.0
+offset_bottom = 401.0
+color = Color(0, 0, 0, 1)
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Message_dialog"]
 offset_left = 452.0
